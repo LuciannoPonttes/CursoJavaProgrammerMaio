@@ -1,0 +1,2 @@
+Para clonar um repositorio do git utilize o:
+	git clone <url do repositorio>
