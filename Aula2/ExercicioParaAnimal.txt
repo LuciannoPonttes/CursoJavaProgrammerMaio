@@ -3,3 +3,9 @@ Cadastro de Animal
 	Animal
 		Nome
 		Idade
+
+	Cachorro
+		corPelo	
+	
+	Galinha
+		corPena
