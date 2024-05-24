@@ -1,40 +1,28 @@
 package entidade;
 
-public class Atleta {
-	
-	public String nome; // Cadeia de qualquer caracter
-	public int idade; // Apenas para numero inteiro
-	public int qtdPartida;
-	public double salario;// numeros com casas decimais - ex: 10.5
+public abstract class  Atleta {
 	
 	
-	//Construtor
-	
-	public Atleta(String nome,int idade, int qtdPartida, double salario) {
-		this.nome = nome;
-		this.idade = idade;
-		this.qtdPartida = qtdPartida;
-		this.salario = salario;	
-	}
-
-	public Atleta() {
-
-	}
+	private String nome; // Cadeia de qualquer caracter
+	private int idade; // Apenas para numero inteiro
+	private int qtdPartida;
+	private double salario;// numeros com casas decimais - ex: 10.5
 	
 	public Atleta(String nome) {
-		this.nome = nome;
-		
-	}
-
-	public Atleta(String nome, int idade, int qtdPartida) {
 		super();
 		this.nome = nome;
-		this.idade = idade;
-		this.qtdPartida = qtdPartida;
 	}
 	
+	public String getNome() {
+		return nome;
+	}
 	
+	public void setIdade(int idade) {
+		this.idade = idade;
+	}
 	
-	
+	public int getIdade() {
+		return idade;
+	}
 
 }

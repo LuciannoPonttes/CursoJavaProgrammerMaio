@@ -2,20 +2,23 @@ package entidade;
 
 public class JogadorFutebol extends Atleta  {
 	
-	int qtdGols;
+	public JogadorFutebol(String nome) {
+		super(nome);// Atributo da classe pai
+	}
 
-	public JogadorFutebol(String nome, int idade, int qtdPartida, double salario, int qtdGols) {
-		super(nome, idade, qtdPartida, salario); // Indica que está usando dados da classe pai
+	private int qtdGols;
+
+	public int getQtdGols() {
+		return qtdGols;
+	}
+
+	public void setQtdGols(int qtdGols) {
 		this.qtdGols = qtdGols;
 	}
 
-	public JogadorFutebol() {
-		super();
-	}
-	
-	
 
-	
+
+
 	
 	
 
