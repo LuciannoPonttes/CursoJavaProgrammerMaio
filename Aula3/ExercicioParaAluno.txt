@@ -9,4 +9,15 @@ Faça o cadastro de animal no eclipse Cadastro de Animal
  	Crie um metodo para calcular o preço do animal pelo peso (peso X 50).
 
 	Imprima os dados no animal usando um metodo apenas para isso.
+
+	Cachorro
+		CorPelo
+		
+	Cobra
+		TipoVeneno
+
+
+	Cadastre os dados e imprima o resultado
+
+	obs: use abstração, herança e encapsulamento
 	
