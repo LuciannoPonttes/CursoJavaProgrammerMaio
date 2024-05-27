@@ -2,32 +2,23 @@ package interacaoUsuario;
 
 import java.util.Scanner;
 
+import javax.swing.JOptionPane;
+
 import entidade.Carro;
 import entidade.Moto;
 
 public class CadastroVeiculo {
-	Scanner entradaDados = new Scanner (System.in);
 	
 	public void cadastrarCarro() {
 		
 		Carro carroEntidade = new Carro();
 		
-		
-		System.out.println("###########Dados do Carro##########");
-
-		System.out.println("Digite o modelo: ");
-		carroEntidade.setModelo(entradaDados.next());
-		
+		carroEntidade.setModelo(JOptionPane.showInputDialog("Digite o modelo: "));
 		System.out.println("Digite o marcar: ");
-		carroEntidade.setMarca(entradaDados.next());
 		
-		System.out.println("Digite a cor: ");
-		carroEntidade.setCor(entradaDados.next());
-		
-		System.out.println("Digite a quantidade Portas");
-		carroEntidade.setNumeroPortas(entradaDados.next());
-		
-		System.out.println("#########Dados Recebidos#######");
+		carroEntidade.setMarca(JOptionPane.showInputDialog("Digite o marcar: "));
+		carroEntidade.setCor(JOptionPane.showInputDialog("Digite a cor: "));
+		carroEntidade.setNumeroPortas("Digite a quantidade Portas: ");
 		
 		System.out.println("MODELO: " + carroEntidade.getModelo());
 		System.out.println("MARCA: " + carroEntidade.getMarca());
@@ -40,19 +31,19 @@ public class CadastroVeiculo {
 	public void cadastroMoto() {
 		Moto motoEntidade = new Moto();
 		
-		System.out.println("###########Dados de moto##########");
 		
-		System.out.println("Digite o modelo: ");
-		motoEntidade.setModelo(entradaDados.next());
 		
-		System.out.println("Digite o marcar: ");
-		motoEntidade.setMarca(entradaDados.next());
 		
-		System.out.println("Digite a cor: ");
-		motoEntidade.setCor(entradaDados.next());
+		motoEntidade.setModelo(JOptionPane.showInputDialog("Digite o modelo: "));
 		
-		System.out.println("Digite o tipo do Guidao");
-		motoEntidade.setTipoGuidao(entradaDados.next());
+	
+		motoEntidade.setMarca(JOptionPane.showInputDialog("Digite o marcar: "));
+		
+		
+		motoEntidade.setCor(JOptionPane.showInputDialog("Digite a cor: "));
+		
+		
+		motoEntidade.setTipoGuidao(JOptionPane.showInputDialog("Digite o tipo do Guidao: "));
 		
 		System.out.println("#########Dados Recebidos#######");
 		
