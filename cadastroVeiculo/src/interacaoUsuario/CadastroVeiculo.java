@@ -31,30 +31,16 @@ public class CadastroVeiculo {
 	public void cadastroMoto() {
 		Moto motoEntidade = new Moto();
 		
-		
-		
-		
 		motoEntidade.setModelo(JOptionPane.showInputDialog("Digite o modelo: "));
-		
-	
 		motoEntidade.setMarca(JOptionPane.showInputDialog("Digite o marcar: "));
-		
-		
 		motoEntidade.setCor(JOptionPane.showInputDialog("Digite a cor: "));
-		
-		
 		motoEntidade.setTipoGuidao(JOptionPane.showInputDialog("Digite o tipo do Guidao: "));
 		
-		System.out.println("#########Dados Recebidos#######");
-		
-		System.out.println("MODELO: " + motoEntidade.getModelo());
-		System.out.println("MARCA: " + motoEntidade.getMarca());
-		System.out.println("COR: " + motoEntidade.getCor());
-		System.out.println("TIPOGUIDAO: " + motoEntidade.getTipoGuidao());
-		
-		
-		
-	
+		JOptionPane.showMessageDialog(null, "MODELO:" + motoEntidade.getModelo() + "\n"+
+				"MARCA: " + motoEntidade.getMarca() + "\n" +
+				"COR: " + motoEntidade.getCor() + "\n"+
+				"TIPO GUIDAO: " + motoEntidade.getTipoGuidao()
+				);
 		
 		
 	}
