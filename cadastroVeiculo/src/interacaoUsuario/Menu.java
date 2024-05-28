@@ -1,8 +1,13 @@
 package interacaoUsuario;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 import javax.swing.JOptionPane;
+
+import entidade.Carro;
+import entidade.Moto;
 
 public class Menu {
 
@@ -11,6 +16,10 @@ public class Menu {
 		
 		
 		CadastroVeiculo cadastroVeiculo = new CadastroVeiculo();
+		Moto motoParaAddNaLista = new Moto();
+		Carro carroParaAddNaLista = new Carro();
+		List<Moto> motoLista = new ArrayList<Moto>();
+		List<Carro> carroLista = new ArrayList<Carro>();
 		
 		
 		int opcao;
@@ -20,30 +29,40 @@ public class Menu {
 		// tudo que está dentro do while vai se repetir enquanto(while) a variavel menuResultado for true(verdadeiro)
 		while (menuResultado) {
 			
-			opcao = Integer.parseInt(JOptionPane.showInputDialog("Digite 1 para CARRO  Digite 2 para moto e 3 para Encerrar"));
+			opcao = Integer.parseInt(JOptionPane.showInputDialog("Digite 1 para CARRO " + "\n"
+					+ " Digite 2 para moto" + "\n" 
+					+ " Digite 3 para listar as Motos" + "\n"
+					+ " Digite 4 para listaEncerrar" + "\n"
+					
+					));
 			
 			switch (opcao) { // Verificar o valor da variavel opcao
 			case 1: { // Caso for 1 entra nesse caso
-				cadastroVeiculo.cadastrarCarro();// VAI EXECUTAR ESSA LINHA
+				carroParaAddNaLista = cadastroVeiculo.cadastrarCarro();// VAI EXECUTAR ESSA LINHA
+				carroLista.add(carroParaAddNaLista);
 				break;
 			}
 			case 2: { //Caso for 2 entra nesse caso
-				cadastroVeiculo.cadastroMoto();
+				motoParaAddNaLista = cadastroVeiculo.cadastroMoto();
+				motoLista.add(motoParaAddNaLista);
+				
 				break;
 			}
-			case 3: { //Caso for 2 entra nesse caso
+			case 3: { 
+				cadastroVeiculo.imprimirMoto(motoLista);
+				break;
+			}
+			case 4: { 
+				cadastroVeiculo.imprimirCarro(carroLista);
+				break;
+			}
+			case 5: { //Caso for 2 entra nesse caso
 				System.exit(0);
 				break;
 			}
 			default: // Se não for nenhuma opcao entra aqui
 				JOptionPane.showMessageDialog(null, "Insira 1 ou 2");
-			
 				break;
-			}
-			
-			
-			if(opcao == 1 || opcao == 2) {
-				menuResultado = false;
 			}
 			
 		}
