@@ -4,6 +4,7 @@ package entidade;
 public class Carro extends Veiculo {
 	
 	private String numeroPortas;
+	private double preco;//não pode ser String
 
 	public String getNumeroPortas() {
 		return numeroPortas;
@@ -16,6 +17,16 @@ public class Carro extends Veiculo {
 	public Carro() {
 		super();	
 	}
+
+	public double getPreco() {
+		return preco;
+	}
+
+	public void setPreco(double preco) {
+		this.preco = preco;
+	}
+	
+	
 	
 	
 

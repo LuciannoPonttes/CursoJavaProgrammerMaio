@@ -10,6 +10,11 @@ import entidade.Moto;
 
 public class CadastroVeiculo {
 	
+	//Explicação do metodo
+		// Public -> visibilidade
+		//Carro - > O tipo de retorno
+		//cadastrarCarro -> Nome do metodo(identificação)
+		//Esse metodo obrigatoriamente retorna um objeto do tipo CARRO
 	public Carro cadastrarCarro() {
 		
 		Carro carroEntidade = new Carro();
@@ -19,9 +24,25 @@ public class CadastroVeiculo {
 		
 		carroEntidade.setMarca(JOptionPane.showInputDialog("Digite o marcar: "));
 		carroEntidade.setCor(JOptionPane.showInputDialog("Digite a cor: "));
-		carroEntidade.setNumeroPortas("Digite a quantidade Portas: ");
+		carroEntidade.setNumeroPortas(JOptionPane.showInputDialog("portas: "));
 		
-		return carroEntidade;
+		
+		
+		try {
+			
+			carroEntidade.setPreco(Double.parseDouble(JOptionPane.showInputDialog("preço: ")));
+		
+		} catch (Exception mensagemExeption) {
+			System.out.println("Mensagem - O preço é numero: " + mensagemExeption.getMessage());
+			
+			JOptionPane.showMessageDialog(null, "O preço deve ser um numero");
+		}
+		
+		
+		
+	
+		
+		return carroEntidade;// Retonar o objeto carroEntidade que é um objeto do tipo Carro
 		
 		
 	}
@@ -79,19 +100,6 @@ public class CadastroVeiculo {
 		
 	}
 	
-	
-	
-	
-	
-	
-	/*
-	 * JOptionPane.showMessageDialog(null, 
-	    "MODELO: " + motoEntidade.getModelo() + "\n" +
-	    "MARCA: " + motoEntidade.getMarca() + "\n" +
-	    "COR: " + motoEntidade.getCor() + "\n" +
-	    "TIPOGUIDAO: " + motoEntidade.getTipoGuidao()
-	);
-	 */
 	
 
 }
