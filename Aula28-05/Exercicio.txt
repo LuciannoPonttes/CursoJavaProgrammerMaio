@@ -1,1 +1,10 @@
 Adicione um menu e cadastre os animais do exercicio anterior em uma lista
+
+
+Trate o preço do cachorro com exeption
+
+
+DESAFIO:
+
+	Caso o usuario digite String no lugar do preço, ofereça~a oportunidade
+	de inserir novamente.
