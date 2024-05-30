@@ -1,0 +1,6 @@
+Cadastro de Funcionario
+	Pessoa
+		Nome
+		Cpf
+	Gerente 
+		Gerencia
