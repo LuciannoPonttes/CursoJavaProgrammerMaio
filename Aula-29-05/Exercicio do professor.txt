@@ -4,3 +4,8 @@ Cadastro de Funcionario
 		Cpf
 	Gerente 
 		Gerencia
+	Atendente
+		setor
+
+Nesse caso em um arquivo -> não esquenta com o registro no arquivo
+
