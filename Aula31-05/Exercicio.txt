@@ -12,3 +12,6 @@ CRIE UM NOVO PROJETO E FAÇA O CADASTRO DE ANIMAIS
 
 Tarefas:
 	1 - O Menu iniciar
+	2 - Crie o controlador do menu iniciar
+
+	Desafio -> Crie a tela de cadastro de cachorro

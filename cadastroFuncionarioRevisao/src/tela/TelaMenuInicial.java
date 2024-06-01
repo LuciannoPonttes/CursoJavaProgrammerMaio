@@ -6,6 +6,8 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
+import controlador.TelaMenuInicialControlador;
+
 
 public class TelaMenuInicial {
 	
@@ -22,21 +24,23 @@ public class TelaMenuInicial {
 		
 		JLabel labelOpcaoAtendente = new JLabel(" 2 - MENU ATENDENTE");//Cria a label 1
 		panelTelaInicial.add(labelOpcaoAtendente);// Adiciona a label 1 no painel
-		panelTelaInicial.add(labelOpcaoAtendente);
-		
-		JTextField opcaoTexto = new JTextField(10);
 		
 		
-		panelTelaInicial.add(opcaoTexto);
+		JTextField opcaoTexto = new JTextField(10);// Caixa de texto
+		
+		panelTelaInicial.add(opcaoTexto);//add o que foi digitado 
 		
 		JButton botaoEnviar = new JButton("Enviar");
 		panelTelaInicial.add(botaoEnviar);
 		
 		
-		
-
+	
 		frameTelaInicial.add(panelTelaInicial);//Adiciona o painel no frame
 		frameTelaInicial.setVisible(true);//Deixa visivel
+		
+		TelaMenuInicialControlador telaMenuInicialControlador = new TelaMenuInicialControlador(opcaoTexto);
+		//Alo construir o controlador o mesmo vai ter o valor opcaoTexto inserido
+		botaoEnviar.addActionListener(telaMenuInicialControlador);
 		
 		
 		
