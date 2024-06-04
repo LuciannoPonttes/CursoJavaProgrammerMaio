@@ -1,0 +1,17 @@
+CRIE UM NOVO PROJETO E FAÇA O CADASTRO DE ANIMAIS
+
+	Animal
+		Nome
+		CAF - O CPF DP ANIMAL
+		
+	Cachorro
+		CorPelo
+		
+	Cobra
+		TipoVeneno
+
+Tarefas:
+	Com base no exercicio ensinado em aula(arquitetura) crie um sistema
+	quer permimita registrar cachorro e cobra em um arquivo.
+
+	
