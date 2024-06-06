@@ -2,21 +2,29 @@ package bancoDeDados;
 
 import java.sql.Connection;
 
+import javax.swing.JOptionPane;
+
 public class Principal {
 	
 	public static void main (String args[]) {
 		
-		FabricaConexao conexao = new FabricaConexao();// Instancia a classe que contém o metodo que retorna o objeto de conexão
+		DaoPessoa daoPessoa = new DaoPessoa();
 		
-
-		Connection conexãoRecebida = conexao.criarConexaoComBaseExemplo();
+		Pessoa pessoa = new Pessoa();
+		pessoa.setCpf("031");
+		pessoa.setNome("Edu pelo java");
 		
-		if (conexãoRecebida == null) {
-			System.out.println("Deu ruim a conexão e não posso usar o objeto");
-		}else {
-			System.out.println("Deu bom e posso usar a conexão");
+		pessoa.setEmail("edu@gmail.com");
+		
+		boolean resultado = daoPessoa.salvarPessoaNobanco(pessoa);
+		
+		if(resultado) {
+			JOptionPane.showMessageDialog(null, "Deu certo");
+		}else{
+			JOptionPane.showMessageDialog(null, "Deu errado");
 		}
-		
+
+
 	}
 
 }

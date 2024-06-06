@@ -1,3 +1,5 @@
 Crie um novo projeto chamado java "ConectaBancoTeste"
 
 1 - Crie uma classe que contenha um metodo para se conectar em um banco de dados chamado "TESTE" 
+
+3 - Crie uma tabela chamada pessoa e adicione via java o cpf,nome, email
