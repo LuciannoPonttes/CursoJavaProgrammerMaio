@@ -1,3 +1,3 @@
-O nome do gerente é:SDFSD
-O cpf do gerente é:FDSFSD
-A gerencia do gerente é:FSDFSD
+O nome do gerente é:LUCIANO FORA DO ECLIPSE
+O cpf do gerente é:031
+A gerencia do gerente é:TI

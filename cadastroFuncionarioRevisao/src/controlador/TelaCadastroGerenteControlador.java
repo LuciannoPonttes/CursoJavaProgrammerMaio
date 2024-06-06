@@ -7,6 +7,7 @@ import javax.swing.JTextField;
 
 import entidade.Gerente;
 import gerenciaArquivo.ManipuladorArquivo;
+import persistencia.DaoGerente;
 
 public class TelaCadastroGerenteControlador implements ActionListener {
 
@@ -16,6 +17,7 @@ public class TelaCadastroGerenteControlador implements ActionListener {
 	
 	
 	ManipuladorArquivo manipuladorArquivo = new ManipuladorArquivo();
+	DaoGerente daoGerente = new DaoGerente();
 	
 	
 	
@@ -47,6 +49,8 @@ public class TelaCadastroGerenteControlador implements ActionListener {
 		gerente.setGerencia(caixaTextoTerceiroCampoRecebidoGerencia.getText());
 		
 		manipuladorArquivo.registrarGerente(gerente);
+		daoGerente.salvarGerente(gerente);
+		
 	}
 
 }
