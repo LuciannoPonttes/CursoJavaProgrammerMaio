@@ -7,7 +7,9 @@ import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
+import persistencia.DaoGerente;
 import tela.TelaCadastroGerente;
+
 
 public class TelaMenuGerenteControlador implements ActionListener {
 
@@ -17,6 +19,9 @@ public class TelaMenuGerenteControlador implements ActionListener {
 	
 	// Telas
 	TelaCadastroGerente cadastroGerente = new TelaCadastroGerente();
+
+	DaoGerente daoGerente = new DaoGerente();
+	
 
 	
 
@@ -40,7 +45,7 @@ public class TelaMenuGerenteControlador implements ActionListener {
 					
 				}
 				case "G2": {
-					
+					daoGerente.retornaListaDeGerentes();
 					System.out.println("Direcione para a lista de gerente");
 					break;
 				}
