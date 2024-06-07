@@ -3,6 +3,7 @@ package controlador;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
@@ -12,13 +13,20 @@ public class TelaMenuGerenteControlador implements ActionListener {
 
 	//Atributo de Classe
 	JTextField opcaoRecebida;
+	JFrame frameTelaMenuGerente;
 	
 	// Telas
 	TelaCadastroGerente cadastroGerente = new TelaCadastroGerente();
 
-	public TelaMenuGerenteControlador(JTextField opcaoRecebida) {
+	
+
+	public TelaMenuGerenteControlador(JTextField opcaoRecebida, JFrame frameTelaMenuGerente) {
+		super();
 		this.opcaoRecebida = opcaoRecebida;
+		this.frameTelaMenuGerente = frameTelaMenuGerente;
 	}
+
+
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
@@ -27,6 +35,7 @@ public class TelaMenuGerenteControlador implements ActionListener {
 				case "G1": {
 					cadastroGerente.chamarTelaCadastroGerente();
 					System.out.println("Direcione para o cadastro de gerente");
+					frameTelaMenuGerente.setVisible(false);
 					break;
 					
 				}

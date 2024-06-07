@@ -3,6 +3,8 @@ package controlador;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
 import entidade.Gerente;
@@ -14,6 +16,7 @@ public class TelaCadastroGerenteControlador implements ActionListener {
 	JTextField caixaTextoPrimeiroCampoRecebidoNome;
 	JTextField caixaTextoSegundoCampoRecebidoCpf;
 	JTextField caixaTextoTerceiroCampoRecebidoGerencia;
+	JFrame frameTelaCadastroGerente;
 	
 	
 	ManipuladorArquivo manipuladorArquivo = new ManipuladorArquivo();
@@ -22,11 +25,13 @@ public class TelaCadastroGerenteControlador implements ActionListener {
 	
 	
 	public TelaCadastroGerenteControlador(JTextField caixaTextoPrimeiroCampoRecebidoNome,
-			JTextField caixaTextoSegundoCampoRecebidoCpf, JTextField caixaTextoTerceiroCampoRecebidoGerencia) {
+			JTextField caixaTextoSegundoCampoRecebidoCpf, JTextField caixaTextoTerceiroCampoRecebidoGerencia,
+			JFrame frameTelaCadastroGerente) {
 		
 		this.caixaTextoPrimeiroCampoRecebidoNome = caixaTextoPrimeiroCampoRecebidoNome;
 		this.caixaTextoSegundoCampoRecebidoCpf = caixaTextoSegundoCampoRecebidoCpf;
 		this.caixaTextoTerceiroCampoRecebidoGerencia = caixaTextoTerceiroCampoRecebidoGerencia;
+		this.frameTelaCadastroGerente = frameTelaCadastroGerente;
 	}
 
 
@@ -38,6 +43,7 @@ public class TelaCadastroGerenteControlador implements ActionListener {
 		System.out.println("o nome: " + caixaTextoPrimeiroCampoRecebidoNome.getText());
 		System.out.println("o cpf: " + caixaTextoSegundoCampoRecebidoCpf.getText());
 		System.out.println("a gerencia: " + caixaTextoTerceiroCampoRecebidoGerencia.getText());
+		frameTelaCadastroGerente.setVisible(false);
 		
 		
 	}
@@ -49,7 +55,14 @@ public class TelaCadastroGerenteControlador implements ActionListener {
 		gerente.setGerencia(caixaTextoTerceiroCampoRecebidoGerencia.getText());
 		
 		manipuladorArquivo.registrarGerente(gerente);
-		daoGerente.salvarGerente(gerente);
+		
+		
+		if(daoGerente.salvarGerente(gerente)){
+			JOptionPane.showMessageDialog(null, "Sarrrvou com sucesso");
+		}else {
+			JOptionPane.showMessageDialog(null, "Não Sarrrvou com sucesso");
+			
+		}
 		
 	}
 

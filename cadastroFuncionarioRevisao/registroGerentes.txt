@@ -1,3 +1,3 @@
-O nome do gerente é:LUCIANO FORA DO ECLIPSE
-O cpf do gerente é:031
-A gerencia do gerente é:TI
+O nome do gerente Ã©:LUCIANO
+O cpf do gerente Ã©:031
+A gerencia do gerente Ã©:TI

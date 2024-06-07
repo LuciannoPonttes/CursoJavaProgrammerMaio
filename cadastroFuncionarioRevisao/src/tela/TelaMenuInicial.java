@@ -1,5 +1,7 @@
 package tela;
 
+import java.awt.GridLayout;
+
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -16,6 +18,8 @@ public class TelaMenuInicial {
 		
 		JFrame frameTelaInicial = new JFrame();// Instanciando um JFrame Vazio
 		
+		GridLayout grid = new GridLayout (0,1);
+		
 		frameTelaInicial.setSize(200 , 200); // Altura e largura
 		JPanel panelTelaInicial = new JPanel();// Cria o objeto painel
 		
@@ -24,7 +28,7 @@ public class TelaMenuInicial {
 		
 		JLabel labelOpcaoAtendente = new JLabel(" 2 - MENU ATENDENTE");//Cria a label 1
 		panelTelaInicial.add(labelOpcaoAtendente);// Adiciona a label 1 no painel
-		
+		panelTelaInicial.setLayout(grid);
 		
 		JTextField opcaoTexto = new JTextField(10);// Caixa de texto
 		
@@ -38,7 +42,7 @@ public class TelaMenuInicial {
 		frameTelaInicial.add(panelTelaInicial);//Adiciona o painel no frame
 		frameTelaInicial.setVisible(true);//Deixa visivel
 		
-		TelaMenuInicialControlador telaMenuInicialControlador = new TelaMenuInicialControlador(opcaoTexto);
+		TelaMenuInicialControlador telaMenuInicialControlador = new TelaMenuInicialControlador(opcaoTexto,frameTelaInicial);
 		//Alo construir o controlador o mesmo vai ter o valor opcaoTexto inserido
 		botaoEnviar.addActionListener(telaMenuInicialControlador);
 		

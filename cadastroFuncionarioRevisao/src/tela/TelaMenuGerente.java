@@ -1,5 +1,7 @@
 package tela;
 
+import java.awt.GridLayout;
+
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -11,6 +13,8 @@ import controlador.TelaMenuGerenteControlador;
 public class TelaMenuGerente {
 	
 	public void chamarTelaMenuGerente() {
+		GridLayout grid = new GridLayout (0,1);
+		
 		JFrame frameTelaMenuGerente = new JFrame();// Instanciando um JFrame Vazio
 		
 		frameTelaMenuGerente.setSize(200 , 200); // Altura e largura
@@ -21,7 +25,7 @@ public class TelaMenuGerente {
 		
 		JLabel labelOpcaoListaGerente = new JLabel("G2 - LISTAR GERENTE");//Cria a label 1
 		panelTelaMenuGerente.add(labelOpcaoListaGerente);// Adiciona a label 1 no painel
-		
+		panelTelaMenuGerente.setLayout(grid);
 		
 		JTextField opcaoTexto = new JTextField(10);// Caixa de texto
 		
@@ -33,7 +37,7 @@ public class TelaMenuGerente {
 		frameTelaMenuGerente.add(panelTelaMenuGerente);//Adiciona o painel no frame
 		frameTelaMenuGerente.setVisible(true);//Deixa visivel
 		
-		TelaMenuGerenteControlador telaMenuGerenteControlador = new TelaMenuGerenteControlador(opcaoTexto);
+		TelaMenuGerenteControlador telaMenuGerenteControlador = new TelaMenuGerenteControlador(opcaoTexto, frameTelaMenuGerente);
 		botaoEnviar.addActionListener(telaMenuGerenteControlador);
 		
 	}

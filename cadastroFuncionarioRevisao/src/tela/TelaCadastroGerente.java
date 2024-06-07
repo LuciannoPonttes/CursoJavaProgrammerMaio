@@ -1,5 +1,7 @@
 package tela;
 
+import java.awt.GridLayout;
+
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -12,6 +14,8 @@ public class TelaCadastroGerente {
 	
 	public void chamarTelaCadastroGerente () {
 		
+		
+		GridLayout grid = new GridLayout (0,1);
 		String primeiroCampo = "Digite o nome do Gerente";
 		String segundoCampo  = "Digite o cpf do Gerente";
 		String terceiroCampo = "Digite a gerencia do Gerente";
@@ -23,6 +27,8 @@ public class TelaCadastroGerente {
 		
 		JLabel labelPrimeiroCampo = new JLabel(primeiroCampo);
 		panelTelaCadastroGerente.add(labelPrimeiroCampo);
+		
+		panelTelaCadastroGerente.setLayout(grid);
 		
 		JTextField caixaTextoPrimeiroCampo = new JTextField(10);
 		panelTelaCadastroGerente.add(caixaTextoPrimeiroCampo);
@@ -49,7 +55,7 @@ public class TelaCadastroGerente {
 		frameTelaCadastroGerente.setVisible(true);
 		
 		TelaCadastroGerenteControlador cadastroGerenteControlador = new  TelaCadastroGerenteControlador(
-				caixaTextoPrimeiroCampo,caixaTextoSegundoCampo,caixaTextoTerceiroCampo);
+				caixaTextoPrimeiroCampo,caixaTextoSegundoCampo,caixaTextoTerceiroCampo,frameTelaCadastroGerente);
 		botaoCadastrar.addActionListener(cadastroGerenteControlador);
 		
 	}

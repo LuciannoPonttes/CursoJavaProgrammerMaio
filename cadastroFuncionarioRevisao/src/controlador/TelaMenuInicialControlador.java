@@ -4,6 +4,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.imageio.plugins.tiff.ExifGPSTagSet;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
@@ -13,15 +14,19 @@ public class TelaMenuInicialControlador implements ActionListener {
 
 	//Atributos da classe
 	JTextField opcao;
+	JFrame frameTelaInicial;
 	
 	//Telas
 	TelaMenuGerente telaMenuGerente = new TelaMenuGerente();
 	
 	
-	public TelaMenuInicialControlador(JTextField opcao) {
-		this.opcao = opcao;
-	}
+	
 
+	public TelaMenuInicialControlador(JTextField opcao, JFrame frameTelaInicial) {
+		this.opcao = opcao;
+		this.frameTelaInicial = frameTelaInicial;
+		
+	}
 	@Override//Vamos entrar no polimorfismo
 	public void actionPerformed(ActionEvent e) {
 		
@@ -30,6 +35,7 @@ public class TelaMenuInicialControlador implements ActionListener {
 					case "1": {
 						telaMenuGerente.chamarTelaMenuGerente();
 						System.out.println("Direcione para tela do gerente");
+						frameTelaInicial.setVisible(false);
 						break;
 						
 					}
