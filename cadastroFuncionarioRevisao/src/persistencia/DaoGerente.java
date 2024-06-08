@@ -1,6 +1,6 @@
 package persistencia;
 
-import java.awt.geom.GeneralPath;
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -62,7 +62,7 @@ public class DaoGerente {
 		
 	}
 	
-	public List<Gerente> retornaListaDeGerentes(){
+	public List <Gerente> retornaListaDeGerentes(){
 		
 		String comandoSqlBuscarGerente = "select * from tb_gerente";
 		List<Gerente> listaGerente = new ArrayList<>();

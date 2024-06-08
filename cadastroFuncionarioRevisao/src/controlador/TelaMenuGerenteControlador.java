@@ -19,6 +19,7 @@ public class TelaMenuGerenteControlador implements ActionListener {
 	
 	// Telas
 	TelaCadastroGerente cadastroGerente = new TelaCadastroGerente();
+	TelaListarGerente telaListarGerente = new TelaListarGerente();
 
 	DaoGerente daoGerente = new DaoGerente();
 	
@@ -42,10 +43,9 @@ public class TelaMenuGerenteControlador implements ActionListener {
 					System.out.println("Direcione para o cadastro de gerente");
 					frameTelaMenuGerente.setVisible(false);
 					break;
-					
 				}
 				case "G2": {
-					daoGerente.retornaListaDeGerentes();
+					telaListarGerente.listarGerente(daoGerente.retornaListaDeGerentes());
 					System.out.println("Direcione para a lista de gerente");
 					break;
 				}
