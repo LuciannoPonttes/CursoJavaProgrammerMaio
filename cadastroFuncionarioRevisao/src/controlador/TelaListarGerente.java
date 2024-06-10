@@ -1,5 +1,6 @@
 package controlador;
 
+import java.awt.Dimension;
 import java.time.chrono.JapaneseChronology;
 import java.util.List;
 
@@ -42,15 +43,18 @@ public class TelaListarGerente {
 		
 		JFrame frameListarGerentes = new JFrame();
 		
-		frameListarGerentes.setSize(500,600);
+		frameListarGerentes.setSize(475,450);
 		
 		JTable tabelaGerentes = new JTable(tabelaString, nomeColunas);
-		
+		tabelaGerentes.setSize(1000,1000);
 		tabelaGerentes.setBounds(30, 40, 300, 300);
 		
+		
 		JScrollPane scrollPaneListarGerente = new JScrollPane(tabelaGerentes);
+		scrollPaneListarGerente.setPreferredSize(new Dimension(400, 160));
 		
 		JPanel panelListarGerente = new JPanel();
+		panelListarGerente.setSize(1000,1000);
 		
 		panelListarGerente.add(scrollPaneListarGerente);
 		

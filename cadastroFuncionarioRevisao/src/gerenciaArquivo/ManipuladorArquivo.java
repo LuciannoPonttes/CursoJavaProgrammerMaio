@@ -7,7 +7,7 @@ import entidade.Gerente;
 //Só adicionei para o exercicio ter um FIM - NÃO SE PREOCUPE
 public class ManipuladorArquivo {
 	
-	public void registrarGerente (Gerente gerente) {
+	public boolean registrarGerente (Gerente gerente) {
 		
 		String enderecoArquivo = "C:\\CursoJavaProgrammerMaio\\CursoJavaProgrammerMaio\\cadastroFuncionarioRevisao\\registroGerentes.txt";
 		
@@ -25,7 +25,10 @@ public class ManipuladorArquivo {
 				
 		} catch (Exception e) {
 			System.out.println("Erro ao registrar o gerente!!!!"); 
+			return  false;
 		}
+		
+		return true;
 	}
 
 

@@ -10,7 +10,7 @@ import javax.swing.JTextField;
 
 import tela.TelaMenuGerente;
 
-public class TelaMenuInicialControlador implements ActionListener {
+public class TelaMenuInicialControlador implements ActionListener  {
 
 	//Atributos da classe
 	JTextField opcao;

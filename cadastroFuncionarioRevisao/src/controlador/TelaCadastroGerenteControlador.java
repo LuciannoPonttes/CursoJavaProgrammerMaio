@@ -10,6 +10,8 @@ import javax.swing.JTextField;
 import entidade.Gerente;
 import gerenciaArquivo.ManipuladorArquivo;
 import persistencia.DaoGerente;
+import repositorio.GerenteRepositorio;
+import repositorio.GerenteRepositorioImplemetacao;
 
 public class TelaCadastroGerenteControlador implements ActionListener {
 
@@ -20,7 +22,8 @@ public class TelaCadastroGerenteControlador implements ActionListener {
 	
 	
 	ManipuladorArquivo manipuladorArquivo = new ManipuladorArquivo();
-	DaoGerente daoGerente = new DaoGerente();
+	// DaoGerente daoGerente = new DaoGerente(); NUNCA DEVEMOS CHAMAR A DAO PELO CONTROLLER
+	GerenteRepositorioImplemetacao gerenteRepositorioImp = new GerenteRepositorioImplemetacao();
 	
 	
 	
@@ -57,7 +60,7 @@ public class TelaCadastroGerenteControlador implements ActionListener {
 		manipuladorArquivo.registrarGerente(gerente);
 		
 		
-		if(daoGerente.salvarGerente(gerente)){
+		if(gerenteRepositorioImp.salvarGerenteRepositorio(gerente)){
 			JOptionPane.showMessageDialog(null, "Sarrrvou com sucesso");
 		}else {
 			JOptionPane.showMessageDialog(null, "Não Sarrrvou com sucesso");

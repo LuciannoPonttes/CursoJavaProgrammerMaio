@@ -1,3 +1,0 @@
-O nome do gerente é:TESTE
-O cpf do gerente é:TESTE
-A gerencia do gerente é:TESTE
