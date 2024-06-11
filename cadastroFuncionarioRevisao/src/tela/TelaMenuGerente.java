@@ -25,6 +25,11 @@ public class TelaMenuGerente {
 		
 		JLabel labelOpcaoListaGerente = new JLabel("G2 - LISTAR GERENTE");//Cria a label 1
 		panelTelaMenuGerente.add(labelOpcaoListaGerente);// Adiciona a label 1 no painel
+		
+		JLabel labelOpcaoDeletarGerente = new JLabel("G3 - DELETAR GERENTE");//Cria a label 1
+		panelTelaMenuGerente.add(labelOpcaoDeletarGerente);// Adiciona a label 1 no painel
+		
+		
 		panelTelaMenuGerente.setLayout(grid);
 		
 		JTextField opcaoTexto = new JTextField(10);// Caixa de texto

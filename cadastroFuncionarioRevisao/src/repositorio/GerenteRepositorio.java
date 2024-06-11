@@ -9,5 +9,7 @@ public interface GerenteRepositorio {
 	public boolean salvarGerenteRepositorio(Gerente gerente);
 	
 	public List<Gerente> listarGerenteRepositorio();
+	
+	public boolean excluirGerenteRepositorio(String cpf);
 
 }

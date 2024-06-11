@@ -1,4 +1,4 @@
-package controlador;
+package tela;
 
 import java.awt.Dimension;
 import java.time.chrono.JapaneseChronology;

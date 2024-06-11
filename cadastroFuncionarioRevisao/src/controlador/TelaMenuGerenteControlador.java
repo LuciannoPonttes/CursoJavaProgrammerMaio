@@ -8,7 +8,11 @@ import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
 import persistencia.DaoGerente;
+import repositorio.GerenteRepositorio;
+import repositorio.GerenteRepositorioImplemetacao;
 import tela.TelaCadastroGerente;
+import tela.TelaDeletarGerente;
+import tela.TelaListarGerente;
 
 
 public class TelaMenuGerenteControlador implements ActionListener {
@@ -20,14 +24,14 @@ public class TelaMenuGerenteControlador implements ActionListener {
 	// Telas
 	TelaCadastroGerente cadastroGerente = new TelaCadastroGerente();
 	TelaListarGerente telaListarGerente = new TelaListarGerente();
+	TelaDeletarGerente telaDeletarGerente = new TelaDeletarGerente();
 
-	DaoGerente daoGerente = new DaoGerente();
-	
+	GerenteRepositorioImplemetacao gerenteRepositorio = new GerenteRepositorioImplemetacao();
 
 	
 
 	public TelaMenuGerenteControlador(JTextField opcaoRecebida, JFrame frameTelaMenuGerente) {
-		super();
+		
 		this.opcaoRecebida = opcaoRecebida;
 		this.frameTelaMenuGerente = frameTelaMenuGerente;
 	}
@@ -36,7 +40,7 @@ public class TelaMenuGerenteControlador implements ActionListener {
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		if(opcaoRecebida.getText().equals("G1") || opcaoRecebida.getText().equals("G2") ) {
+		if(opcaoRecebida.getText().equals("G1") || opcaoRecebida.getText().equals("G2") || opcaoRecebida.getText().equals("G3")  ) {
 			switch (opcaoRecebida.getText()) {
 				case "G1": {
 					cadastroGerente.chamarTelaCadastroGerente();
@@ -45,11 +49,16 @@ public class TelaMenuGerenteControlador implements ActionListener {
 					break;
 				}
 				case "G2": {
-					telaListarGerente.listarGerente(daoGerente.retornaListaDeGerentes());
+					telaListarGerente.listarGerente(gerenteRepositorio.listarGerenteRepositorio());
 					System.out.println("Direcione para a lista de gerente");
 					break;
 				}
-				case "3": {
+				case "G3": {
+					telaDeletarGerente.chamardTelaeletarGerente(gerenteRepositorio.listarGerenteRepositorio());
+					System.out.println("Direcione para deletar de gerente");
+					break;
+				}
+				case "SAIR": {
 						System.exit(0);
 						break;
 						
