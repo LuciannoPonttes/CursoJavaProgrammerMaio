@@ -11,6 +11,4 @@ public class Atendente {
 	public void setSetor(String setor) {
 		this.setor = setor;
 	}
-
-
 }
