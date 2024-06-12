@@ -41,7 +41,7 @@ public class TelaCadastroGerenteControlador implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		
-		registrarArquivo();
+		registrarNoBanco();
 		
 		System.out.println("o nome: " + caixaTextoPrimeiroCampoRecebidoNome.getText());
 		System.out.println("o cpf: " + caixaTextoSegundoCampoRecebidoCpf.getText());
@@ -51,7 +51,7 @@ public class TelaCadastroGerenteControlador implements ActionListener {
 		
 	}
 	
-	public void registrarArquivo() {
+	public void registrarNoBanco() {
 		Gerente gerente = new Gerente();
 		gerente.setNome(caixaTextoPrimeiroCampoRecebidoNome.getText());
 		gerente.setCpf(caixaTextoSegundoCampoRecebidoCpf.getText());

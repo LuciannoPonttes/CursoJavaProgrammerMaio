@@ -29,6 +29,9 @@ public class TelaMenuGerente {
 		JLabel labelOpcaoDeletarGerente = new JLabel("G3 - DELETAR GERENTE");//Cria a label 1
 		panelTelaMenuGerente.add(labelOpcaoDeletarGerente);// Adiciona a label 1 no painel
 		
+		JLabel labelOpcaoAlterarGerente = new JLabel("G4 - ALTERAR GERENTE");//Cria a label 1
+		panelTelaMenuGerente.add(labelOpcaoAlterarGerente);// Adiciona a label 1 no painel
+		
 		
 		panelTelaMenuGerente.setLayout(grid);
 		

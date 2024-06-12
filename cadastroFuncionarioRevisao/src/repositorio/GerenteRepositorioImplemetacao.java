@@ -22,18 +22,28 @@ public class GerenteRepositorioImplemetacao implements GerenteRepositorio {
 	@Override
 	public boolean excluirGerenteRepositorio(String cpf) {
 		DaoGerente daoGerente = new DaoGerente();
-		
 		for(Gerente gerente:listarGerenteRepositorio() ) {
 			if(gerente.getCpf().equals(cpf)) {
 				return daoGerente.deletarGerente(cpf);
 			}
 			
 		}
-		
 		return false;
-		
-		
-		
 	}
 
+	@Override
+	public boolean alterarGerenteRepositorio(Gerente gerente) {
+		DaoGerente daoGerente = new DaoGerente();
+		return daoGerente.alterarGerente(gerente);
+	}
+
+	@Override
+	public Gerente buscaGerentePorCpf(String cpf) {
+		for(Gerente gerente:listarGerenteRepositorio() ) {
+			if(gerente.getCpf().equals(cpf)) {
+				return gerente;
+			}
+		}
+		return null;
+	}
 }

@@ -13,6 +13,7 @@ import repositorio.GerenteRepositorioImplemetacao;
 import tela.TelaCadastroGerente;
 import tela.TelaDeletarGerente;
 import tela.TelaListarGerente;
+import tela.TelaSelecionarAlterarGerente;
 
 
 public class TelaMenuGerenteControlador implements ActionListener {
@@ -25,8 +26,11 @@ public class TelaMenuGerenteControlador implements ActionListener {
 	TelaCadastroGerente cadastroGerente = new TelaCadastroGerente();
 	TelaListarGerente telaListarGerente = new TelaListarGerente();
 	TelaDeletarGerente telaDeletarGerente = new TelaDeletarGerente();
+	TelaSelecionarAlterarGerente alterarSelecionarGerente = new TelaSelecionarAlterarGerente();
 
 	GerenteRepositorioImplemetacao gerenteRepositorio = new GerenteRepositorioImplemetacao();
+	
+
 
 	
 
@@ -40,7 +44,9 @@ public class TelaMenuGerenteControlador implements ActionListener {
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		if(opcaoRecebida.getText().equals("G1") || opcaoRecebida.getText().equals("G2") || opcaoRecebida.getText().equals("G3")  ) {
+		if(opcaoRecebida.getText().equals("G1") || opcaoRecebida.getText().equals("G2") || opcaoRecebida.getText().equals("G3") || 
+				opcaoRecebida.getText().equals("G4") ) {
+			
 			switch (opcaoRecebida.getText()) {
 				case "G1": {
 					cadastroGerente.chamarTelaCadastroGerente();
@@ -55,6 +61,11 @@ public class TelaMenuGerenteControlador implements ActionListener {
 				}
 				case "G3": {
 					telaDeletarGerente.chamardTelaeletarGerente(gerenteRepositorio.listarGerenteRepositorio());
+					System.out.println("Direcione para deletar de gerente");
+					break;
+				}
+				case "G4": {
+					alterarSelecionarGerente.chamarTelaeletarGerente(gerenteRepositorio.listarGerenteRepositorio());
 					System.out.println("Direcione para deletar de gerente");
 					break;
 				}

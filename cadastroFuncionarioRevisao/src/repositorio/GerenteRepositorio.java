@@ -11,5 +11,11 @@ public interface GerenteRepositorio {
 	public List<Gerente> listarGerenteRepositorio();
 	
 	public boolean excluirGerenteRepositorio(String cpf);
+	
+	public boolean alterarGerenteRepositorio(Gerente gerente);
+	
+	public Gerente buscaGerentePorCpf(String cpf);
 
 }
+
+
