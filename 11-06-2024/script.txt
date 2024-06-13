@@ -1,0 +1,20 @@
+CREATE TABLE tb_atendente (
+    cpf VARCHAR(11),
+    nome VARCHAR(100),
+    setor VARCHAR(100)
+); 
+
+
+
+select * from tb_atendente; 
+
+SET SQL_SAFE_UPDATES = 0;
+
+delete from tb_gerente where cpf = 'TESTE';
+
+SET SQL_SAFE_UPDATES = 0;
+
+
+insert into tb_gerente (cpf, nome, gerencia) values ('9999', 'Stefany', 'DEV-SOFT') ; -- Para inserir dados
+
+UPDATE tb_gerente SET nome = 'eduAlterado', gerencia = 'tiAlterado' WHERE cpf = '031' 
