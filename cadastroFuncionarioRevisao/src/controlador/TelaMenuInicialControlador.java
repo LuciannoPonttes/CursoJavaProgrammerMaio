@@ -8,6 +8,7 @@ import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
+import tela.TelaMenuAtendente;
 import tela.TelaMenuGerente;
 
 public class TelaMenuInicialControlador implements ActionListener  {
@@ -18,6 +19,7 @@ public class TelaMenuInicialControlador implements ActionListener  {
 	
 	//Telas
 	TelaMenuGerente telaMenuGerente = new TelaMenuGerente();
+	TelaMenuAtendente telaMenuAtendente = new TelaMenuAtendente();
 	
 	
 	
@@ -37,10 +39,9 @@ public class TelaMenuInicialControlador implements ActionListener  {
 						System.out.println("Direcione para tela do gerente");
 						frameTelaInicial.setVisible(false);
 						break;
-						
 					}
 					case "2": {
-						
+						telaMenuAtendente.chamarTelaMenuAtendente();
 						System.out.println("Direcione para tela do atendente");
 						break;
 					}

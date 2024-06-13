@@ -1,6 +1,6 @@
 package entidade;
 
-public class Atendente {
+public class Atendente extends Pessoa {
 	
 	private String setor;
 

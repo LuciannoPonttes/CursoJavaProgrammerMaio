@@ -1,0 +1,6 @@
+ORDEM DE CRIAÇÃO DE CLASSE:
+	- ENTIDADE
+	- DAO
+	- Repositorio
+        - Tela
+	-Controlador
