@@ -1,4 +1,4 @@
-package controlador;
+package controlador.gerente;
 
 import java.awt.TextField;
 import java.awt.event.ActionEvent;
@@ -7,9 +7,9 @@ import java.awt.event.ActionListener;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
-import repositorio.GerenteRepositorio;
 import repositorio.GerenteRepositorioImplemetacao;
-import tela.TelaMenuGerente;
+import tela.gerente.TelaMenuGerente;
+
 
 public class TelaDeletarGerenteControlador implements ActionListener {
 

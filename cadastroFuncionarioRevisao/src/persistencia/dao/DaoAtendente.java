@@ -1,4 +1,4 @@
-package persistencia;
+package persistencia.dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -6,12 +6,15 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 
+import entidade.Atendente;
 import entidade.Gerente;
+import entidade.Atendente;
+import persistencia.configuracao.FabricaConexao;
 
-// Data Acess Objeto -> Essa classe é especialista em transações de banco de dados do objeto GERENTE
-public class DaoGerente {
 
-	public boolean salvarGerente(Gerente gerente) {
+public class DaoAtendente {
+	
+	public boolean salvarAtendente(Atendente atendente) {
 
 		boolean salvamento = false;
 
@@ -19,21 +22,17 @@ public class DaoGerente {
 		Connection connectionBaseExemplo = null; // Cria o objeto de conexão como null
 		PreparedStatement preparaOcomandoSQL = null; // Cria o objeto que prepara o comando SQL
 
-		String comandoSqlInsert = "insert into tb_gerente (cpf, nome, gerencia) values (?, ?, ?)"; // Base do comando
+		String comandoSqlInsert = "insert into tb_atendente (cpf, nome, setor) values (?, ?, ?)"; // Base do comando
 																									// SQL
 
 		try {
 			connectionBaseExemplo = conexaoFabricaConexao.criarConexaoComBaseCadastroUsuario(); // Recebe o objeto de
-																								// conexão da classe
-																								// Fabrica de conexão
-
+																								// conexão da classe																				// Fabrica de conex
 			preparaOcomandoSQL = connectionBaseExemplo.prepareStatement(comandoSqlInsert);// Armazena a conexão e o
-																							// comando SQL que vai ser
-																							// preparado
-
-			preparaOcomandoSQL.setString(1, gerente.getCpf());// Coloca o valor no campo cpf
-			preparaOcomandoSQL.setString(2, gerente.getNome()); // Colocar o valor no campo nome
-			preparaOcomandoSQL.setString(3, gerente.getGerencia()); // Colocar o valor no campo email
+																			// prepar
+			preparaOcomandoSQL.setString(1, atendente.getCpf());// Coloca o valor no campo cpf
+			preparaOcomandoSQL.setString(2, atendente.getNome()); // Colocar o valor no campo nome
+			preparaOcomandoSQL.setString(3, atendente.getSetor()); // Colocar o valor no campo email
 
 			preparaOcomandoSQL.execute(); // Executa o comando no banco de dados
 
@@ -43,32 +42,28 @@ public class DaoGerente {
 
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
-			System.out.println(" Não foi possivel salvar a pessoa!!!");
+			System.out.println("Não foi possivel salvar a pessoa!!!");
 
 		} finally { // Esse é obrigatorio
 			try {
 				if (connectionBaseExemplo != null) {
-					connectionBaseExemplo.close();// Se objeto connectionBaseExemplo estiver aberto essa linha vai
-													// encerrar
+					connectionBaseExemplo.close();// Se objeto connectionBaseExemplo estiver aberto essa linha vai									// encerrar
 				}
 				if (preparaOcomandoSQL != null) {// Se objeto preparaOcomandoSQL estiver aberto essa linha vai encerrar
 					preparaOcomandoSQL.close();
 				}
-
 			} catch (Exception e2) {
 				System.out.println("Não foi possivel fechar a conexão!!");
 			}
-
 		}
-
 		return salvamento;
 
 	}
+	
+	public List<Atendente> retornaListaDeAtendentes() {
 
-	public List<Gerente> retornaListaDeGerentes() {
-
-		String comandoSqlBuscarGerente = "select * from tb_gerente";
-		List<Gerente> listaGerente = new ArrayList<>();
+		String comandoSqlBuscarAtendente = "select * from tb_Atendente";
+		List<Atendente> listaAtendente = new ArrayList<>();
 		FabricaConexao conexaoFabricaConexao = new FabricaConexao();// Instacia a classe Fabrica de conexão
 
 		Connection connectionBaseExemplo = null; // Cria o objeto de conexão como null
@@ -80,21 +75,21 @@ public class DaoGerente {
 			connectionBaseExemplo = conexaoFabricaConexao.criarConexaoComBaseCadastroUsuario(); // Recebe o objeto de
 																								// conexão da classe
 																								// Fabrica de conexão
-			preparaOcomandoSQL = connectionBaseExemplo.prepareStatement(comandoSqlBuscarGerente);
+			preparaOcomandoSQL = connectionBaseExemplo.prepareStatement(comandoSqlBuscarAtendente);
 			resultadoDaTabelaDoBanco = preparaOcomandoSQL.executeQuery();
 
 			while (resultadoDaTabelaDoBanco.next()) {
-				Gerente gerente = new Gerente();
+				Atendente atendente = new Atendente();
 
-				gerente.setNome(resultadoDaTabelaDoBanco.getString("nome"));
-				gerente.setCpf(resultadoDaTabelaDoBanco.getString("cpf"));
-				gerente.setGerencia(resultadoDaTabelaDoBanco.getString("gerencia"));
+				atendente.setNome(resultadoDaTabelaDoBanco.getString("nome"));
+				atendente.setCpf(resultadoDaTabelaDoBanco.getString("cpf"));
+				atendente.setSetor(resultadoDaTabelaDoBanco.getString("setor"));
 
-				listaGerente.add(gerente);
+				listaAtendente.add(atendente);
 			}
 
 		} catch (Exception e) {
-			System.out.println("Erro ao buscar a lista de gerentes");
+			System.out.println("Erro ao buscar a lista de Atendentes");
 		} finally { // Esse é obrigatorio
 			try {
 				if (connectionBaseExemplo != null) {
@@ -110,11 +105,11 @@ public class DaoGerente {
 			}
 		}
 
-		return listaGerente;
+		return listaAtendente;
 
 	}
-
-	public boolean deletarGerente(String cpf) {
+	
+	public boolean deletarAtendente(String cpf) {
 
 		boolean deletar = false;
 
@@ -122,7 +117,7 @@ public class DaoGerente {
 		Connection connectionBaseExemplo = null; // Cria o objeto de conexão como null
 		PreparedStatement preparaOcomandoSQL = null; // Cria o objeto que prepara o comando SQL
 
-		String comandoSqlDelete = "delete from tb_gerente where cpf = ?"; // Base do comando SQL
+		String comandoSqlDelete = "delete from tb_atendente where cpf = ?"; // Base do comando SQL
 
 		try {
 			connectionBaseExemplo = conexaoFabricaConexao.criarConexaoComBaseCadastroUsuario(); // Recebe o objeto de
@@ -134,7 +129,7 @@ public class DaoGerente {
 
 			preparaOcomandoSQL.execute(); // Executa o comando no banco de dados
 
-			System.out.println("Gerente Deletado");// Log
+			System.out.println("Atendente Deletado");// Log
 
 			deletar = true; // Se tudo funcionar certo
 
@@ -162,7 +157,7 @@ public class DaoGerente {
 
 	}
 	
-	public boolean alterarGerente(Gerente gerente) {
+	public boolean alterarAtendente(Atendente atendente) {
 
 		boolean salvamento = false;
 
@@ -170,21 +165,16 @@ public class DaoGerente {
 		Connection connectionBaseExemplo = null; // Cria o objeto de conexão como null
 		PreparedStatement preparaOcomandoSQL = null; // Cria o objeto que prepara o comando SQL
 
-		String comandoSqlInsert = "UPDATE tb_gerente SET nome = ?, gerencia = ? WHERE cpf = ? "; // Base do comando
+		String comandoSqlInsert = "UPDATE tb_atendente SET nome = ?, setor = ? WHERE cpf = ?"; // Base do comando
 																									// SQL
-
 		try {
-			connectionBaseExemplo = conexaoFabricaConexao.criarConexaoComBaseCadastroUsuario(); // Recebe o objeto de
-																								// conexão da classe																				// Fabrica de conexão
+			connectionBaseExemplo = conexaoFabricaConexao.criarConexaoComBaseCadastroUsuario(); // Recebe o objeto de																			// conexão da classe																				// Fabrica de conexão
 			preparaOcomandoSQL = connectionBaseExemplo.prepareStatement(comandoSqlInsert);// Armazena a conexão e o																			// comando SQL que vai se																			// preparado
-			preparaOcomandoSQL.setString(1, gerente.getNome());
-			preparaOcomandoSQL.setString(2, gerente.getGerencia()); // Colocar o valor no campo email
-			preparaOcomandoSQL.setString(3, gerente.getCpf());// Coloca o valor no campo cpf
+			preparaOcomandoSQL.setString(1, atendente.getNome());
+			preparaOcomandoSQL.setString(2, atendente.getSetor()); // Colocar o valor no campo email
+			preparaOcomandoSQL.setString(3, atendente.getCpf());// Coloca o valor no campo cpf
 			 // Colocar o valor no campo nome
-			
-
 			preparaOcomandoSQL.execute(); // Executa o comando no banco de dados
-
 			System.out.println("A pessoa foi registrada");// Log
 
 			salvamento = true; // Se tudo funcionar certo
@@ -212,8 +202,7 @@ public class DaoGerente {
 		return salvamento;
 
 	}
-	
-	
-	
+
+
 
 }

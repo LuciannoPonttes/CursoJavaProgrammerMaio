@@ -1,4 +1,4 @@
-package tela;
+package tela.gerente;
 
 import java.awt.Dimension;
 import java.time.chrono.JapaneseChronology;
@@ -9,6 +9,7 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 
+import controlador.atendente.TelaListarAtendenteControlador;
 import entidade.Gerente;
 
 public class TelaListarGerente {
@@ -60,6 +61,9 @@ public class TelaListarGerente {
 		
 		frameListarGerentes.add(panelListarGerente);
 		frameListarGerentes.setVisible(true);
+		
+		
+		
 		
 	}
 

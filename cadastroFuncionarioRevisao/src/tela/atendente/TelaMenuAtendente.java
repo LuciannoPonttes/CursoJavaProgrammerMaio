@@ -1,4 +1,4 @@
-package tela;
+package tela.atendente;
 
 import java.awt.GridLayout;
 
@@ -8,7 +8,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-import controlador.TelaMenuAtendenteControlador;
+import controlador.atendente.TelaMenuAtendenteControlador;
 
 public class TelaMenuAtendente {
 	

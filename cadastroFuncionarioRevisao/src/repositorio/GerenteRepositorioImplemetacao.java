@@ -3,7 +3,7 @@ package repositorio;
 import java.util.List;
 
 import entidade.Gerente;
-import persistencia.DaoGerente;
+import persistencia.dao.DaoGerente;
 
 public class GerenteRepositorioImplemetacao implements GerenteRepositorio {
 
@@ -22,13 +22,11 @@ public class GerenteRepositorioImplemetacao implements GerenteRepositorio {
 	@Override
 	public boolean excluirGerenteRepositorio(String cpf) {
 		DaoGerente daoGerente = new DaoGerente();
-		for(Gerente gerente:listarGerenteRepositorio() ) {
-			if(gerente.getCpf().equals(cpf)) {
-				return daoGerente.deletarGerente(cpf);
-			}
-			
+		if(buscaGerentePorCpf(cpf) != null) {
+			return daoGerente.deletarGerente(cpf);
+		}else {
+			return false;
 		}
-		return false;
 	}
 
 	@Override

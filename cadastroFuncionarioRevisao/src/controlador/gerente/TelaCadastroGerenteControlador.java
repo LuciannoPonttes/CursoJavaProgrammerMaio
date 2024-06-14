@@ -1,4 +1,4 @@
-package controlador;
+package controlador.gerente;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -9,7 +9,7 @@ import javax.swing.JTextField;
 
 import entidade.Gerente;
 import gerenciaArquivo.ManipuladorArquivo;
-import persistencia.DaoGerente;
+import persistencia.dao.DaoGerente;
 import repositorio.GerenteRepositorio;
 import repositorio.GerenteRepositorioImplemetacao;
 

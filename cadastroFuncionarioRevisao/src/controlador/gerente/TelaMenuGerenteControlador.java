@@ -1,4 +1,4 @@
-package controlador;
+package controlador.gerente;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -7,13 +7,13 @@ import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
-import persistencia.DaoGerente;
+import persistencia.dao.DaoGerente;
 import repositorio.GerenteRepositorio;
 import repositorio.GerenteRepositorioImplemetacao;
-import tela.TelaCadastroGerente;
-import tela.TelaDeletarGerente;
-import tela.TelaListarGerente;
-import tela.TelaSelecionarAlterarGerente;
+import tela.gerente.TelaCadastroGerente;
+import tela.gerente.TelaDeletarGerente;
+import tela.gerente.TelaListarGerente;
+import tela.gerente.TelaSelecionarAlterarGerente;
 
 
 public class TelaMenuGerenteControlador implements ActionListener {

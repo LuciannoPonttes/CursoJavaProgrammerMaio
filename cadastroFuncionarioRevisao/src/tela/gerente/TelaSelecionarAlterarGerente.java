@@ -1,4 +1,4 @@
-package tela;
+package tela.gerente;
 
 import java.awt.Dimension;
 import java.awt.TextField;
@@ -11,7 +11,7 @@ import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
 
-import controlador.TelaSelecionarAlterarGerenteControlador;
+import controlador.gerente.TelaSelecionarAlterarGerenteControlador;
 import entidade.Gerente;
 
 public class TelaSelecionarAlterarGerente {

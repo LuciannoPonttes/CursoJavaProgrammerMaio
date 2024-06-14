@@ -1,4 +1,4 @@
-package tela;
+package tela.gerente;
 
 import java.awt.Dimension;
 import java.awt.TextField;
@@ -12,7 +12,7 @@ import javax.swing.JTable;
 
 import org.w3c.dom.Text;
 
-import controlador.TelaDeletarGerenteControlador;
+import controlador.gerente.TelaDeletarGerenteControlador;
 import entidade.Gerente;
 
 public class TelaDeletarGerente {

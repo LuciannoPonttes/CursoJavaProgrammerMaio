@@ -3,13 +3,13 @@ package controlador;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import javax.imageio.plugins.tiff.ExifGPSTagSet;
+
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
-import tela.TelaMenuAtendente;
-import tela.TelaMenuGerente;
+import tela.atendente.TelaMenuAtendente;
+import tela.gerente.TelaMenuGerente;
 
 public class TelaMenuInicialControlador implements ActionListener  {
 
@@ -41,6 +41,7 @@ public class TelaMenuInicialControlador implements ActionListener  {
 						break;
 					}
 					case "2": {
+						frameTelaInicial.setVisible(false);
 						telaMenuAtendente.chamarTelaMenuAtendente();
 						System.out.println("Direcione para tela do atendente");
 						break;

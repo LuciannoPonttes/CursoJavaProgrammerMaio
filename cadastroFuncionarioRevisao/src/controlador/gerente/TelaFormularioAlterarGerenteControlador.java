@@ -1,4 +1,4 @@
-package controlador;
+package controlador.gerente;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -9,7 +9,7 @@ import javax.swing.JTextField;
 
 import entidade.Gerente;
 import repositorio.GerenteRepositorioImplemetacao;
-import tela.TelaMenuGerente;
+import tela.gerente.TelaMenuGerente;
 
 public class TelaFormularioAlterarGerenteControlador implements ActionListener {
 
