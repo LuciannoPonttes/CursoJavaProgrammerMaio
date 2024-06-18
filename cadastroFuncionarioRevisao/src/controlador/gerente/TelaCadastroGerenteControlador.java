@@ -18,6 +18,7 @@ public class TelaCadastroGerenteControlador implements ActionListener {
 	JTextField caixaTextoPrimeiroCampoRecebidoNome;
 	JTextField caixaTextoSegundoCampoRecebidoCpf;
 	JTextField caixaTextoTerceiroCampoRecebidoGerencia;
+	JTextField qtdHora;
 	JFrame frameTelaCadastroGerente;
 	
 	
@@ -29,12 +30,12 @@ public class TelaCadastroGerenteControlador implements ActionListener {
 	
 	public TelaCadastroGerenteControlador(JTextField caixaTextoPrimeiroCampoRecebidoNome,
 			JTextField caixaTextoSegundoCampoRecebidoCpf, JTextField caixaTextoTerceiroCampoRecebidoGerencia,
-			JFrame frameTelaCadastroGerente) {
-		
+			JFrame frameTelaCadastroGerente, JTextField qtdHora) {
 		this.caixaTextoPrimeiroCampoRecebidoNome = caixaTextoPrimeiroCampoRecebidoNome;
 		this.caixaTextoSegundoCampoRecebidoCpf = caixaTextoSegundoCampoRecebidoCpf;
 		this.caixaTextoTerceiroCampoRecebidoGerencia = caixaTextoTerceiroCampoRecebidoGerencia;
 		this.frameTelaCadastroGerente = frameTelaCadastroGerente;
+		this.qtdHora = qtdHora;
 	}
 
 
@@ -57,10 +58,8 @@ public class TelaCadastroGerenteControlador implements ActionListener {
 		gerente.setCpf(caixaTextoSegundoCampoRecebidoCpf.getText());
 		gerente.setGerencia(caixaTextoTerceiroCampoRecebidoGerencia.getText());
 		
-		manipuladorArquivo.registrarGerente(gerente);
-		
-		
-		if(gerenteRepositorioImp.salvarGerenteRepositorio(gerente)){
+	
+		if(gerenteRepositorioImp.salvarGerenteRepositorio(gerente,qtdHora.getText())){
 			JOptionPane.showMessageDialog(null, "Sarrrvou com sucesso");
 		}else {
 			JOptionPane.showMessageDialog(null, "Não Sarrrvou com sucesso");

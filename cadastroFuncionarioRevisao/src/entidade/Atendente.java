@@ -11,4 +11,6 @@ public class Atendente extends Pessoa {
 	public void setSetor(String setor) {
 		this.setor = setor;
 	}
+	
+	
 }

@@ -1,0 +1,7 @@
+Calcular
+
+	Cachorro:
+		Peso * 120.0
+
+	Outros
+		Peso * 100.0

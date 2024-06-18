@@ -20,7 +20,7 @@ public class TelaListarAtendente {
 
 		int quantidadeDeLinhas = listaAtendentes.size();
 
-		String[][] tabelaString = new String[quantidadeDeLinhas][3];
+		String[][] tabelaString = new String[quantidadeDeLinhas][4];
 
 		int posicaoColuna = 0;
 		int posicaoLinha = 0;
@@ -34,13 +34,16 @@ public class TelaListarAtendente {
 
 			posicaoColuna++;
 			tabelaString[posicaoLinha][posicaoColuna] = atendente.getSetor();
+			
+			posicaoColuna++;
+			tabelaString[posicaoLinha][posicaoColuna] = atendente.getSalario().toString();
 
 			posicaoLinha++;
 			posicaoColuna = 0;
 
 		}
 
-		String nomeColunas[] = { "CPF", "NOME", "SETOR" };
+		String nomeColunas[] = { "CPF", "NOME", "SETOR", "SALARIO" };
 
 		JFrame frameListarAtendente = new JFrame();
 

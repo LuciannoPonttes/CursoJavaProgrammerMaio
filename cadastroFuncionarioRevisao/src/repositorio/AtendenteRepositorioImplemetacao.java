@@ -4,15 +4,25 @@ import java.util.List;
 
 import entidade.Atendente;
 import persistencia.dao.DaoAtendente;
+import servico.EntidadeService;
 
 public class AtendenteRepositorioImplemetacao implements AtendenteRepositorio {
 
 	@Override
-	public boolean salvarAtendenteRepositorio(Atendente atendente) {
+	public boolean salvarAtendenteRepositorio(Atendente atendente, String qtdHora) {
+		
 		DaoAtendente daoAtendente = new DaoAtendente();
-		return daoAtendente.salvarAtendente(atendente);
+		EntidadeService entidadeService = new EntidadeService();
+		
+		if (entidadeService.buscarSalarioAtendente(qtdHora) == null) {
+			return false;
+		}else {
+			atendente.setSalario(entidadeService.buscarSalarioAtendente(qtdHora));
+			return daoAtendente.salvarAtendente(atendente);
+		}
+		
 	}
-
+	
 	@Override
 	public List<Atendente> listarAtendenteRepositorio() {
 		DaoAtendente daoAtendente = new DaoAtendente();
@@ -48,4 +58,6 @@ public class AtendenteRepositorioImplemetacao implements AtendenteRepositorio {
 		}
 		return null;
 	}
+
+	
 }

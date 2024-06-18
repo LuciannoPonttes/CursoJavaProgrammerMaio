@@ -4,13 +4,22 @@ import java.util.List;
 
 import entidade.Gerente;
 import persistencia.dao.DaoGerente;
+import servico.EntidadeService;
 
 public class GerenteRepositorioImplemetacao implements GerenteRepositorio {
 
 	@Override // Aponte que esse metodo é uma SobEscrita de um metodo da interface
-	public boolean salvarGerenteRepositorio(Gerente gerente) {
+	public boolean salvarGerenteRepositorio(Gerente gerente, String qtdHora) {
+		
 		DaoGerente daoGerente = new DaoGerente();
-		return daoGerente.salvarGerente(gerente);
+		EntidadeService entidadeService = new EntidadeService();
+		
+		if (entidadeService.buscarSalarioGerente(qtdHora) == null) {
+			return false;
+		}else {
+			gerente.setSalario(entidadeService.buscarSalarioGerente(qtdHora));
+			return daoGerente.salvarGerente(gerente);
+		}
 	}
 
 	@Override

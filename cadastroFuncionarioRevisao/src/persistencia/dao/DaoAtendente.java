@@ -22,7 +22,7 @@ public class DaoAtendente {
 		Connection connectionBaseExemplo = null; // Cria o objeto de conexão como null
 		PreparedStatement preparaOcomandoSQL = null; // Cria o objeto que prepara o comando SQL
 
-		String comandoSqlInsert = "insert into tb_atendente (cpf, nome, setor) values (?, ?, ?)"; // Base do comando
+		String comandoSqlInsert = "insert into tb_atendente (cpf, nome, setor,salario) values (?,?,?,?)"; // Base do comando
 																									// SQL
 
 		try {
@@ -33,7 +33,8 @@ public class DaoAtendente {
 			preparaOcomandoSQL.setString(1, atendente.getCpf());// Coloca o valor no campo cpf
 			preparaOcomandoSQL.setString(2, atendente.getNome()); // Colocar o valor no campo nome
 			preparaOcomandoSQL.setString(3, atendente.getSetor()); // Colocar o valor no campo email
-
+			preparaOcomandoSQL.setString(4, atendente.getSalario().toString());
+			
 			preparaOcomandoSQL.execute(); // Executa o comando no banco de dados
 
 			System.out.println("A pessoa foi registrada");// Log
@@ -84,7 +85,7 @@ public class DaoAtendente {
 				atendente.setNome(resultadoDaTabelaDoBanco.getString("nome"));
 				atendente.setCpf(resultadoDaTabelaDoBanco.getString("cpf"));
 				atendente.setSetor(resultadoDaTabelaDoBanco.getString("setor"));
-
+				atendente.setSalario(Double.parseDouble(resultadoDaTabelaDoBanco.getString("salario")));
 				listaAtendente.add(atendente);
 			}
 

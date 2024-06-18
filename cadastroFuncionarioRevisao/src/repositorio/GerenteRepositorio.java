@@ -6,7 +6,7 @@ import entidade.Gerente;
 
 public interface GerenteRepositorio {
 	
-	public boolean salvarGerenteRepositorio(Gerente gerente);
+	public boolean salvarGerenteRepositorio(Gerente gerente, String qtdHora);
 	
 	public List<Gerente> listarGerenteRepositorio();
 	

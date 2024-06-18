@@ -10,6 +10,13 @@ public class Gerente extends Pessoa {
 	public void setGerencia(String gerencia) {
 		this.gerencia = gerencia;
 	}
+	
+	@Override // SobreEscrever um metodo que já existe em uma classe pai
+	public Double calcularSalario(int qtdHora) {
+		
+		return qtdHora * 50.0;
+		
+	}
 
-
+	
 }

@@ -18,6 +18,7 @@ public class TelaCadastroAtendente {
 		String primeiroCampo = "Digite o nome do Atendente";
 		String segundoCampo = "Digite o cpf do Atendente";
 		String terceiroCampo = "Digite  setor do Atendente";
+		String quartoCampo = "Digite a Quantidade de horas";
 
 		JFrame frameTelaCadastroAtendente = new JFrame();// Instanciando um JFrame Vazio
 
@@ -43,6 +44,12 @@ public class TelaCadastroAtendente {
 
 		JTextField caixaTextoTerceiroCampo = new JTextField(10);
 		panelTelaCadastroAtendente.add(caixaTextoTerceiroCampo);
+		
+		JLabel labelQuartoCampo = new JLabel(quartoCampo);
+		panelTelaCadastroAtendente.add(labelQuartoCampo);
+
+		JTextField caixaTextolabelQuartoCampo = new JTextField(10);
+		panelTelaCadastroAtendente.add(caixaTextolabelQuartoCampo);
 
 		JButton botaoCadastrar = new JButton("Cadastrar Atendente");
 		panelTelaCadastroAtendente.add(botaoCadastrar);
@@ -51,7 +58,7 @@ public class TelaCadastroAtendente {
 		frameTelaCadastroAtendente.setVisible(true);
 
 		TelaCadastroAtendenteControlador atendenteControlador = new TelaCadastroAtendenteControlador(
-				caixaTextoPrimeiroCampo, caixaTextoSegundoCampo, caixaTextoTerceiroCampo, frameTelaCadastroAtendente);
+				caixaTextoPrimeiroCampo, caixaTextoSegundoCampo, caixaTextoTerceiroCampo, frameTelaCadastroAtendente, caixaTextolabelQuartoCampo );
 		botaoCadastrar.addActionListener(atendenteControlador);
 	}
 }

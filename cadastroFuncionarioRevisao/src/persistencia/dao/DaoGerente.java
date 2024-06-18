@@ -20,7 +20,7 @@ public class DaoGerente {
 		Connection connectionBaseExemplo = null; // Cria o objeto de conexão como null
 		PreparedStatement preparaOcomandoSQL = null; // Cria o objeto que prepara o comando SQL
 
-		String comandoSqlInsert = "insert into tb_gerente (cpf, nome, gerencia) values (?, ?, ?)"; // Base do comando
+		String comandoSqlInsert = "insert into tb_gerente (cpf, nome, gerencia, salario) values (?, ?, ?,?)"; // Base do comando
 																									// SQL
 
 		try {
@@ -35,7 +35,7 @@ public class DaoGerente {
 			preparaOcomandoSQL.setString(1, gerente.getCpf());// Coloca o valor no campo cpf
 			preparaOcomandoSQL.setString(2, gerente.getNome()); // Colocar o valor no campo nome
 			preparaOcomandoSQL.setString(3, gerente.getGerencia()); // Colocar o valor no campo email
-
+			preparaOcomandoSQL.setString(4, gerente.getSalario().toString());
 			preparaOcomandoSQL.execute(); // Executa o comando no banco de dados
 
 			System.out.println("A pessoa foi registrada");// Log

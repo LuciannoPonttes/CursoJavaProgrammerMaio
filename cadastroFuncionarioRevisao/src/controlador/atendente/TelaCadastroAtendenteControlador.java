@@ -16,6 +16,7 @@ public class TelaCadastroAtendenteControlador implements ActionListener {
 	JTextField caixaTextoPrimeiroCampoRecebidoNome;
 	JTextField caixaTextoSegundoCampoRecebidoCpf;
 	JTextField caixaTextoTerceiroCampoRecebidoSetor;
+	JTextField qtdHora;
 	JFrame frameTelaCadastroAtendente;
 	
 	AtendenteRepositorioImplemetacao atendenteRepositorioImplemetacao = new AtendenteRepositorioImplemetacao();
@@ -23,12 +24,13 @@ public class TelaCadastroAtendenteControlador implements ActionListener {
 
 	public TelaCadastroAtendenteControlador(JTextField caixaTextoPrimeiroCampoRecebidoNome,
 			JTextField caixaTextoSegundoCampoRecebidoCpf, JTextField caixaTextoTerceiroCampoRecebidoGerencia,
-			JFrame frameTelaCadastroAtendente) {
-		super();
+			JFrame frameTelaCadastroAtendente, JTextField caixaTextoQuartoCampoRecebidoSetor) {
+		
 		this.caixaTextoPrimeiroCampoRecebidoNome = caixaTextoPrimeiroCampoRecebidoNome;
 		this.caixaTextoSegundoCampoRecebidoCpf = caixaTextoSegundoCampoRecebidoCpf;
 		this.caixaTextoTerceiroCampoRecebidoSetor = caixaTextoTerceiroCampoRecebidoGerencia;
 		this.frameTelaCadastroAtendente = frameTelaCadastroAtendente;
+		this.qtdHora = caixaTextoQuartoCampoRecebidoSetor;
 	}
 
 	@Override
@@ -44,7 +46,8 @@ public class TelaCadastroAtendenteControlador implements ActionListener {
 		atendente.setNome(caixaTextoPrimeiroCampoRecebidoNome.getText());
 		atendente.setCpf(caixaTextoSegundoCampoRecebidoCpf.getText());
 		atendente.setSetor(caixaTextoTerceiroCampoRecebidoSetor.getText());
-		if(atendenteRepositorioImplemetacao.salvarAtendenteRepositorio(atendente)) {
+		
+		if(atendenteRepositorioImplemetacao.salvarAtendenteRepositorio(atendente, qtdHora.getText())) {
 			JOptionPane.showMessageDialog(null, "Atendente Registrado com Sucesso");
 		}else {
 			JOptionPane.showMessageDialog(null, "Erro ao registrar o atendente");

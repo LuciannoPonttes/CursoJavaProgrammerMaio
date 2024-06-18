@@ -19,6 +19,7 @@ public class TelaCadastroGerente {
 		String primeiroCampo = "Digite o nome do Gerente";
 		String segundoCampo  = "Digite o cpf do Gerente";
 		String terceiroCampo = "Digite a gerencia do Gerente";
+		String quartoCampo = "Digite a quantidade de horas";
 		
 		JFrame frameTelaCadastroGerente = new JFrame();// Instanciando um JFrame Vazio
 		
@@ -46,6 +47,12 @@ public class TelaCadastroGerente {
 		JTextField caixaTextoTerceiroCampo = new JTextField(10);
 		panelTelaCadastroGerente.add(caixaTextoTerceiroCampo);
 		
+		JLabel labelQuartoCampo = new JLabel(quartoCampo);
+		panelTelaCadastroGerente.add(labelQuartoCampo);
+		
+		JTextField caixaTextoQuartoCampo = new JTextField(10);
+		panelTelaCadastroGerente.add(caixaTextoQuartoCampo);
+		
 		
 		JButton botaoCadastrar = new JButton("Cadastrar Gerente");
 		panelTelaCadastroGerente.add(botaoCadastrar);
@@ -55,7 +62,7 @@ public class TelaCadastroGerente {
 		frameTelaCadastroGerente.setVisible(true);
 		
 		TelaCadastroGerenteControlador cadastroGerenteControlador = new  TelaCadastroGerenteControlador(
-				caixaTextoPrimeiroCampo,caixaTextoSegundoCampo,caixaTextoTerceiroCampo,frameTelaCadastroGerente);
+				caixaTextoPrimeiroCampo,caixaTextoSegundoCampo,caixaTextoTerceiroCampo,frameTelaCadastroGerente,caixaTextoQuartoCampo);
 		botaoCadastrar.addActionListener(cadastroGerenteControlador);
 		
 	}
