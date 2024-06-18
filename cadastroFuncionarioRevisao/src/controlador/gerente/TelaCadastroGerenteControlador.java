@@ -3,11 +3,13 @@ package controlador.gerente;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
 import entidade.Gerente;
+import enuns.GerenciaEnum;
 import gerenciaArquivo.ManipuladorArquivo;
 import persistencia.dao.DaoGerente;
 import repositorio.GerenteRepositorio;
@@ -17,7 +19,7 @@ public class TelaCadastroGerenteControlador implements ActionListener {
 
 	JTextField caixaTextoPrimeiroCampoRecebidoNome;
 	JTextField caixaTextoSegundoCampoRecebidoCpf;
-	JTextField caixaTextoTerceiroCampoRecebidoGerencia;
+	JComboBox<GerenciaEnum> caixaSelecaoSetor;
 	JTextField qtdHora;
 	JFrame frameTelaCadastroGerente;
 	
@@ -29,11 +31,11 @@ public class TelaCadastroGerenteControlador implements ActionListener {
 	
 	
 	public TelaCadastroGerenteControlador(JTextField caixaTextoPrimeiroCampoRecebidoNome,
-			JTextField caixaTextoSegundoCampoRecebidoCpf, JTextField caixaTextoTerceiroCampoRecebidoGerencia,
+			JTextField caixaTextoSegundoCampoRecebidoCpf, JComboBox<GerenciaEnum> caixaSelecaoSetor,
 			JFrame frameTelaCadastroGerente, JTextField qtdHora) {
 		this.caixaTextoPrimeiroCampoRecebidoNome = caixaTextoPrimeiroCampoRecebidoNome;
 		this.caixaTextoSegundoCampoRecebidoCpf = caixaTextoSegundoCampoRecebidoCpf;
-		this.caixaTextoTerceiroCampoRecebidoGerencia = caixaTextoTerceiroCampoRecebidoGerencia;
+		this.caixaSelecaoSetor = caixaSelecaoSetor;
 		this.frameTelaCadastroGerente = frameTelaCadastroGerente;
 		this.qtdHora = qtdHora;
 	}
@@ -46,7 +48,7 @@ public class TelaCadastroGerenteControlador implements ActionListener {
 		
 		System.out.println("o nome: " + caixaTextoPrimeiroCampoRecebidoNome.getText());
 		System.out.println("o cpf: " + caixaTextoSegundoCampoRecebidoCpf.getText());
-		System.out.println("a gerencia: " + caixaTextoTerceiroCampoRecebidoGerencia.getText());
+		System.out.println("a gerencia: " + caixaSelecaoSetor.getSelectedItem().toString());
 		frameTelaCadastroGerente.setVisible(false);
 		
 		
@@ -56,10 +58,10 @@ public class TelaCadastroGerenteControlador implements ActionListener {
 		Gerente gerente = new Gerente();
 		gerente.setNome(caixaTextoPrimeiroCampoRecebidoNome.getText());
 		gerente.setCpf(caixaTextoSegundoCampoRecebidoCpf.getText());
-		gerente.setGerencia(caixaTextoTerceiroCampoRecebidoGerencia.getText());
+		gerente.setGerencia(caixaSelecaoSetor.getSelectedItem().toString());
 		
 	
-		if(gerenteRepositorioImp.salvarGerenteRepositorio(gerente,qtdHora.getText())){
+		if(gerenteRepositorioImp.salvarGerenteRepositorio(gerente, qtdHora.getText())){
 			JOptionPane.showMessageDialog(null, "Sarrrvou com sucesso");
 		}else {
 			JOptionPane.showMessageDialog(null, "Não Sarrrvou com sucesso");

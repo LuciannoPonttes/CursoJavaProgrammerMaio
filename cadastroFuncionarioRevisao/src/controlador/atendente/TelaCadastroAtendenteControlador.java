@@ -3,11 +3,13 @@ package controlador.atendente;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
 import entidade.Atendente;
+import enuns.SetorEnum;
 import repositorio.AtendenteRepositorioImplemetacao;
 import tela.atendente.TelaMenuAtendente;
 
@@ -15,7 +17,7 @@ public class TelaCadastroAtendenteControlador implements ActionListener {
 
 	JTextField caixaTextoPrimeiroCampoRecebidoNome;
 	JTextField caixaTextoSegundoCampoRecebidoCpf;
-	JTextField caixaTextoTerceiroCampoRecebidoSetor;
+	JComboBox<SetorEnum> caixaSelecaoSetor;
 	JTextField qtdHora;
 	JFrame frameTelaCadastroAtendente;
 	
@@ -23,12 +25,12 @@ public class TelaCadastroAtendenteControlador implements ActionListener {
 	TelaMenuAtendente telaAtendente = new TelaMenuAtendente();
 
 	public TelaCadastroAtendenteControlador(JTextField caixaTextoPrimeiroCampoRecebidoNome,
-			JTextField caixaTextoSegundoCampoRecebidoCpf, JTextField caixaTextoTerceiroCampoRecebidoGerencia,
+			JTextField caixaTextoSegundoCampoRecebidoCpf, JComboBox<SetorEnum> caixaSelecaoSetor,
 			JFrame frameTelaCadastroAtendente, JTextField caixaTextoQuartoCampoRecebidoSetor) {
 		
 		this.caixaTextoPrimeiroCampoRecebidoNome = caixaTextoPrimeiroCampoRecebidoNome;
 		this.caixaTextoSegundoCampoRecebidoCpf = caixaTextoSegundoCampoRecebidoCpf;
-		this.caixaTextoTerceiroCampoRecebidoSetor = caixaTextoTerceiroCampoRecebidoGerencia;
+		this.caixaSelecaoSetor = caixaSelecaoSetor;
 		this.frameTelaCadastroAtendente = frameTelaCadastroAtendente;
 		this.qtdHora = caixaTextoQuartoCampoRecebidoSetor;
 	}
@@ -45,7 +47,7 @@ public class TelaCadastroAtendenteControlador implements ActionListener {
 		Atendente atendente = new Atendente();
 		atendente.setNome(caixaTextoPrimeiroCampoRecebidoNome.getText());
 		atendente.setCpf(caixaTextoSegundoCampoRecebidoCpf.getText());
-		atendente.setSetor(caixaTextoTerceiroCampoRecebidoSetor.getText());
+		atendente.setSetor(caixaSelecaoSetor.getSelectedItem().toString());
 		
 		if(atendenteRepositorioImplemetacao.salvarAtendenteRepositorio(atendente, qtdHora.getText())) {
 			JOptionPane.showMessageDialog(null, "Atendente Registrado com Sucesso");

@@ -3,12 +3,15 @@ package tela.gerente;
 import java.awt.GridLayout;
 
 import javax.swing.JButton;
+import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 import controlador.gerente.TelaCadastroGerenteControlador;
+import enuns.GerenciaEnum;
+import enuns.SetorEnum;
 
 public class TelaCadastroGerente {
 	
@@ -44,8 +47,10 @@ public class TelaCadastroGerente {
 		JLabel labelTerceiroCampo = new JLabel(terceiroCampo);
 		panelTelaCadastroGerente.add(labelTerceiroCampo);
 		
-		JTextField caixaTextoTerceiroCampo = new JTextField(10);
-		panelTelaCadastroGerente.add(caixaTextoTerceiroCampo);
+		//JTextField caixaTextoTerceiroCampo = new JTextField(10);
+		//panelTelaCadastroGerente.add(caixaTextoTerceiroCampo);
+		JComboBox<GerenciaEnum> caixaSelecaoSetor = new JComboBox<>(GerenciaEnum.values());
+		panelTelaCadastroGerente.add(caixaSelecaoSetor);
 		
 		JLabel labelQuartoCampo = new JLabel(quartoCampo);
 		panelTelaCadastroGerente.add(labelQuartoCampo);
@@ -62,7 +67,7 @@ public class TelaCadastroGerente {
 		frameTelaCadastroGerente.setVisible(true);
 		
 		TelaCadastroGerenteControlador cadastroGerenteControlador = new  TelaCadastroGerenteControlador(
-				caixaTextoPrimeiroCampo,caixaTextoSegundoCampo,caixaTextoTerceiroCampo,frameTelaCadastroGerente,caixaTextoQuartoCampo);
+				caixaTextoPrimeiroCampo,caixaTextoSegundoCampo,caixaSelecaoSetor,frameTelaCadastroGerente,caixaTextoQuartoCampo);
 		botaoCadastrar.addActionListener(cadastroGerenteControlador);
 		
 	}
