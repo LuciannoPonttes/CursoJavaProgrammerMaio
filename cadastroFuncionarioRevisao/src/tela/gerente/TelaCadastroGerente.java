@@ -8,10 +8,8 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
-
 import controlador.gerente.TelaCadastroGerenteControlador;
 import enuns.GerenciaEnum;
-import enuns.SetorEnum;
 
 public class TelaCadastroGerente {
 	
