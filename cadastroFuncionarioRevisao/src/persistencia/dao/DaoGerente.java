@@ -20,8 +20,8 @@ public class DaoGerente {
 		Connection connectionBaseExemplo = null; // Cria o objeto de conexão como null
 		PreparedStatement preparaOcomandoSQL = null; // Cria o objeto que prepara o comando SQL
 
-		String comandoSqlInsert = "insert into tb_gerente (cpf, nome, gerencia, salario, cep, localidade) values (?, ?, ?, ?, ?, ?)"; // Base do comando
-																									// SQL
+		String comandoSqlInsert = "insert into tb_gerente (cpf, nome, gerencia, salario, cep, localidade,logradouro, bairro,uf) values (?,?,?,?,?,?,?,?,?)"; // Base do comando
+																							// SQL
 
 		try {
 			connectionBaseExemplo = conexaoFabricaConexao.criarConexaoComBaseCadastroUsuario(); // Recebe o objeto de
@@ -38,6 +38,10 @@ public class DaoGerente {
 			preparaOcomandoSQL.setString(4, gerente.getSalario().toString());
 			preparaOcomandoSQL.setString(5, gerente.getEndereco().getCep());
 			preparaOcomandoSQL.setString(6, gerente.getEndereco().getLocalidade());
+			preparaOcomandoSQL.setString(7,	gerente.getEndereco().getLogradouro());
+			preparaOcomandoSQL.setString(8, gerente.getEndereco().getBairro());
+			preparaOcomandoSQL.setString(9, gerente.getEndereco().getUf());
+		
 		
 			preparaOcomandoSQL.execute(); // Executa o comando no banco de dados
 

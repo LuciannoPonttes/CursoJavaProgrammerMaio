@@ -3,7 +3,6 @@ package cliente;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
 import java.net.URL;
 
 import javax.swing.JOptionPane;
@@ -14,22 +13,23 @@ public class EnderecoCliente {
 	
 	
 	//Isso aqui não está incluso no curso é só um "BONUS"
-	public static Endereco buscarEnderecoPeloCep(String cep) throws Exception {
-		String urlApi = "https://viacep.com.br/ws/" + cep + "/json/" ;
+	public Endereco buscarEnderecoPeloCep(String cep) throws Exception {
+		String urlApi = "https://viacep.com.br/ws/" + cep + "/json/" ; // URL PARA BUSCAR NA API
 		Endereco enderecoPopulado = new Endereco();
 		
-		URL obj = new URL(urlApi);
+		URL obj = new URL(urlApi); // CRIAR OBJETO URL COM A STRING DA URL DA API
 		
-		HttpURLConnection con = (HttpURLConnection)obj.openConnection();
+		HttpURLConnection con = (HttpURLConnection)obj.openConnection(); // ABRE CONEXÃO COM SERVIDOR DA API
 		
 		con.setRequestMethod("GET"); // É UM METODO HTTP PARA CONSULTA
 		
-		int statusRespostaApi = con.getResponseCode();
+		int statusRespostaApi = con.getResponseCode();// RECEBE O STATUS HTTP DA RESPOSTA DA API 200 OU 400
 		
 		if(statusRespostaApi == HttpURLConnection.HTTP_OK) {
-			BufferedReader dadosEntradaDaApi = new BufferedReader(new InputStreamReader(con.getInputStream()));
-			String linhaEntrada;
-			StringBuffer respostaDaApi = new StringBuffer();
+			BufferedReader dadosEntradaDaApi = new BufferedReader(new InputStreamReader(con.getInputStream()));// Armazena toda resposta do servidor no objeto dadosEntradaDaApi
+			String linhaEntrada; // String temporaria para montar o string StringBuffer
+			StringBuffer respostaDaApi = new StringBuffer(); // String buffer que será montada durante a leitura do json
+			
 			while ((linhaEntrada = dadosEntradaDaApi.readLine()) != null) {
 				respostaDaApi.append(linhaEntrada);
 			}

@@ -3,14 +3,14 @@ package entidade;
 public class Endereco {
 	
 		private String cep;
+		
+		private String localidade;
 	    
 	    private String logradouro;
 
 	    private String complemento;
 
 	    private String bairro;
-
-	    private String localidade;
 
 	    private String uf;
 	    
