@@ -1,5 +1,10 @@
 package servico;
 
+import java.io.FileOutputStream;
+import com.itextpdf.text.Document;
+import com.itextpdf.text.Paragraph;
+import com.itextpdf.text.pdf.PdfWriter;
+
 import javax.swing.JOptionPane;
 
 import entidade.Atendente;
@@ -32,6 +37,25 @@ public class EntidadeService {
 		}
 		
 		return null;
+	}
+	
+	public static void gerarPdfDetalharGerente(Gerente gerente) {
+		String caminhoArquivo = "C:\\CursoJavaProgrammerMaio\\CursoJavaProgrammerMaio\\relatorios\\gerente.pdf";
+		
+		Document document = new Document();
+		
+		try {
+			PdfWriter.getInstance(document, new FileOutputStream(caminhoArquivo));
+			if(gerente != null) {	
+				document.open();;
+				document.add(new Paragraph("Cpf: " + gerente.getCpf()));
+				document.add(new Paragraph("Nome: " + gerente.getNome()));
+			}
+			document.close();
+		} catch (Exception e) {
+			e.getMessage();
+		}
+	
 	}
 	
 }
