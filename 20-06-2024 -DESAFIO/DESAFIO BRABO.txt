@@ -1,0 +1,3 @@
+Na tela de listar Cobra e Cachoro
+	Inserir a possibilidade de gerar PDF detalhando todas as informações de um cachorro/cobra.
+	O usuário deve inserir o CAF do animal e ao clicar em gerar PDF o sistema deve criar um arquivo PDF com todas as informações

@@ -69,7 +69,7 @@ public class DaoAtendente {
 	public List<Atendente> retornaListaDeAtendentes() {
 
 		String comandoSqlBuscarAtendente = "select * from tb_Atendente";
-		List<Atendente> listaAtendente = new ArrayList<>();
+		List<Atendente> listaAtendente = new ArrayList<>(); // Objeto que vai ser retornado
 		FabricaConexao conexaoFabricaConexao = new FabricaConexao();// Instacia a classe Fabrica de conexão
 
 		Connection connectionBaseExemplo = null; // Cria o objeto de conexão como null
@@ -111,7 +111,7 @@ public class DaoAtendente {
 			}
 		}
 
-		return listaAtendente;
+		return listaAtendente; // Ele vai retornar o objeto
 
 	}
 	

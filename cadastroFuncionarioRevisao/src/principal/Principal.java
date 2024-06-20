@@ -3,6 +3,7 @@ package principal;
 import cliente.EnderecoCliente;
 import entidade.Gerente;
 import servico.EntidadeService;
+import tela.TelaMenuInicial;
 
 
 
@@ -10,12 +11,11 @@ public class Principal {
 
 	public static void main(String[] args) {
 	
-		//TelaMenuInicial telaMenuInicial = new TelaMenuInicial();
-		//telaMenuInicial.chamarTelaMenuIniciar();
+		TelaMenuInicial telaMenuInicial = new TelaMenuInicial();
+		telaMenuInicial.chamarTelaMenuIniciar();
 		//client/servidor
 		
 		EntidadeService entidadeService = new EntidadeService();
-		EnderecoCliente cliente = new EnderecoCliente();
 		
 		Gerente gerente = new Gerente();
 		gerente.setCpf("031");
