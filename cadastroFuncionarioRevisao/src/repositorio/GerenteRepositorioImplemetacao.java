@@ -4,7 +4,7 @@ import java.util.List;
 
 import entidade.Gerente;
 import persistencia.dao.DaoGerente;
-import servico.EntidadeService;
+import servico.EntidadeServico;
 
 public class GerenteRepositorioImplemetacao implements GerenteRepositorio {
 
@@ -12,7 +12,7 @@ public class GerenteRepositorioImplemetacao implements GerenteRepositorio {
 	public boolean salvarGerenteRepositorio(Gerente gerente, String qtdHora) {
 		
 		DaoGerente daoGerente = new DaoGerente();
-		EntidadeService entidadeService = new EntidadeService();
+		EntidadeServico entidadeService = new EntidadeServico();
 		
 		if (entidadeService.buscarSalarioGerente(qtdHora) == null) {
 			return false;

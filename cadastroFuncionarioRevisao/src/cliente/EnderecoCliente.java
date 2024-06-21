@@ -72,9 +72,6 @@ public class EnderecoCliente {
                     case "logradouro":
                         endereco.setLogradouro(value);
                         break;
-                    case "complemento":
-                        endereco.setComplemento(value);
-                        break;
                     case "bairro":
                         endereco.setBairro(value);
                         break;

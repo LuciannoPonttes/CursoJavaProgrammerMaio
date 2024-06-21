@@ -4,7 +4,7 @@ import java.util.List;
 
 import entidade.Atendente;
 import persistencia.dao.DaoAtendente;
-import servico.EntidadeService;
+import servico.EntidadeServico;
 
 public class AtendenteRepositorioImplemetacao implements AtendenteRepositorio {
 
@@ -12,7 +12,7 @@ public class AtendenteRepositorioImplemetacao implements AtendenteRepositorio {
 	public boolean salvarAtendenteRepositorio(Atendente atendente, String qtdHora) {
 		
 		DaoAtendente daoAtendente = new DaoAtendente();
-		EntidadeService entidadeService = new EntidadeService();
+		EntidadeServico entidadeService = new EntidadeServico();
 		
 		if (entidadeService.buscarSalarioAtendente(qtdHora) == null) {
 			return false;

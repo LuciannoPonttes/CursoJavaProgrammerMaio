@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import entidade.Atendente;
+import entidade.Endereco;
 import entidade.Gerente;
 import entidade.Atendente;
 import persistencia.configuracao.FabricaConexao;
@@ -86,11 +87,21 @@ public class DaoAtendente {
 
 			while (resultadoDaTabelaDoBanco.next()) {
 				Atendente atendente = new Atendente();
+				
+				Endereco endereco = new Endereco();
 
 				atendente.setNome(resultadoDaTabelaDoBanco.getString("nome"));
 				atendente.setCpf(resultadoDaTabelaDoBanco.getString("cpf"));
 				atendente.setSetor(resultadoDaTabelaDoBanco.getString("setor"));
 				atendente.setSalario(Double.parseDouble(resultadoDaTabelaDoBanco.getString("salario")));
+			
+				
+				endereco.setCep(resultadoDaTabelaDoBanco.getString("cep"));
+				endereco.setBairro(resultadoDaTabelaDoBanco.getString("bairro"));
+				endereco.setLogradouro(resultadoDaTabelaDoBanco.getString("logradouro"));
+				endereco.setLocalidade(resultadoDaTabelaDoBanco.getString("localidade"));
+				endereco.setUf(resultadoDaTabelaDoBanco.getString("uf"));
+				atendente.setEndereco(endereco);
 				listaAtendente.add(atendente);
 			}
 

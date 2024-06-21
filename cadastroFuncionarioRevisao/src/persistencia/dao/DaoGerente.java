@@ -6,6 +6,7 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 
+import entidade.Endereco;
 import entidade.Gerente;
 import persistencia.configuracao.FabricaConexao;
 
@@ -93,11 +94,29 @@ public class DaoGerente {
 
 			while (resultadoDaTabelaDoBanco.next()) {
 				Gerente gerente = new Gerente();
+				Endereco endereco = new Endereco();
 
+				gerente.setEndereco(endereco);
+				
 				gerente.setNome(resultadoDaTabelaDoBanco.getString("nome"));
 				gerente.setCpf(resultadoDaTabelaDoBanco.getString("cpf"));
 				gerente.setGerencia(resultadoDaTabelaDoBanco.getString("gerencia"));
-
+				gerente.setSalario(Double.parseDouble(resultadoDaTabelaDoBanco.getString("salario")));
+				gerente.getEndereco().setCep(resultadoDaTabelaDoBanco.getString("cep"));
+				gerente.getEndereco().setBairro(resultadoDaTabelaDoBanco.getString("bairro"));
+				gerente.getEndereco().setLogradouro(resultadoDaTabelaDoBanco.getString("logradouro"));
+				gerente.getEndereco().setLocalidade(resultadoDaTabelaDoBanco.getString("localidade"));
+				gerente.getEndereco().setUf(resultadoDaTabelaDoBanco.getString("uf"));
+				
+				/*
+				 	endereco.setCep(resultadoDaTabelaDoBanco.getString("cep"));
+					endereco.setBairro(resultadoDaTabelaDoBanco.getString("bairro"));
+					endereco.setLogradouro(resultadoDaTabelaDoBanco.getString("logradouro"));
+					endereco.setLocalidade(resultadoDaTabelaDoBanco.getString("localidade"));
+					endereco.setUf(resultadoDaTabelaDoBanco.getString("uf"));
+				 */
+				
+				
 				listaGerente.add(gerente);
 			}
 

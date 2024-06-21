@@ -4,12 +4,15 @@ import java.awt.Dimension;
 import java.time.chrono.JapaneseChronology;
 import java.util.List;
 
+import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
+import javax.swing.JTextField;
 
 import controlador.atendente.TelaListarAtendenteControlador;
+import controlador.gerente.TelaListarGerenteControlador;
 import entidade.Gerente;
 
 public class TelaListarGerente {
@@ -55,14 +58,23 @@ public class TelaListarGerente {
 		scrollPaneListarGerente.setPreferredSize(new Dimension(400, 160));
 		
 		JPanel panelListarGerente = new JPanel();
-		panelListarGerente.setSize(1000,1000);
+		panelListarGerente.setSize(1000, 1000);
+
+		panelListarGerente.add(scrollPaneListarGerente);
+		
+		JTextField cpf = new JTextField(10);
+		panelListarGerente.add(cpf);
+		
+		JButton botaoDetalhar = new JButton("Detalhar");
+		panelListarGerente.add(botaoDetalhar);
 		
 		panelListarGerente.add(scrollPaneListarGerente);
 		
 		frameListarGerentes.add(panelListarGerente);
 		frameListarGerentes.setVisible(true);
 		
-		
+		TelaListarGerenteControlador gerenteControlador = new TelaListarGerenteControlador(cpf);
+		botaoDetalhar.addActionListener(gerenteControlador);
 		
 		
 	}

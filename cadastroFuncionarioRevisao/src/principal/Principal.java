@@ -2,7 +2,7 @@ package principal;
 
 import cliente.EnderecoCliente;
 import entidade.Gerente;
-import servico.EntidadeService;
+import servico.EntidadeServico;
 import tela.TelaMenuInicial;
 
 
@@ -13,17 +13,9 @@ public class Principal {
 	
 		TelaMenuInicial telaMenuInicial = new TelaMenuInicial();
 		telaMenuInicial.chamarTelaMenuIniciar();
-		//client/servidor
+	
 		
-		EntidadeService entidadeService = new EntidadeService();
 		
-		Gerente gerente = new Gerente();
-		gerente.setCpf("031");
-		gerente.setGerencia("TI");
-		gerente.setSalario(15.000);
-		gerente.setNome("Luciano");
-		
-		entidadeService.gerarPdfDetalharGerente(gerente);
 		
 		
 	}
