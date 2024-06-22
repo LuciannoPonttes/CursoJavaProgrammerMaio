@@ -1,0 +1,31 @@
+Classe Correntista
+
+Atributos:
+
+	Correntista
+
+	Nome (String)
+	Cpf (String)
+	Endereço (Classe aninhada com os atributos):
+		CEP (String)
+		LOCALIDADE (String)
+		LOGRADOURO (String)
+		UF (String)
+	Email (String)
+	QtdTransacao (int)
+	ValordaAnuidade (double) -> Tem um calculo
+
+
+
+	Correntista Premium
+	
+		CalcularAnuidade(): Implementação que calcula a anuidade como QtdTransacao * 0.7
+		LimiteDeCredito (double)
+Métodos:
+	CalcularAnuidade(): Implementação que calcula a anuidade como QtdTransacao * 0.5
+	Classe LimiteDeSaque(double)
+
+
+CADASDRAR, EDITAR, EXCLUIR E DETALHAR(GERAR PDF)
+
+ATENÇÃO NO MEIO DO PROJETO PODE APARECER UM NOVO PEDIDO, PORTANTO FAÇAA O SISTEMA PENSANDO EM FACILITAR A MANUNTENÇÃO!!
