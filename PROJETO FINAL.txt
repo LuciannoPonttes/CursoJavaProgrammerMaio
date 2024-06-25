@@ -1,8 +1,7 @@
-Classe Correntista
 
 Atributos:
 
-	Correntista
+	Correntista -> Classe pai
 
 	Nome (String)
 	Cpf (String)
@@ -21,9 +20,10 @@ Atributos:
 	
 		CalcularAnuidade(): Implementação que calcula a anuidade como QtdTransacao * 0.7
 		LimiteDeCredito (double)
-Métodos:
-	CalcularAnuidade(): Implementação que calcula a anuidade como QtdTransacao * 0.5
-	Classe LimiteDeSaque(double)
+
+	Correntista Basico
+		CalcularAnuidade(): Implementação que calcula a anuidade como QtdTransacao * 0.5
+		Classe LimiteDeSaque(double)
 
 
 CADASDRAR, EDITAR, EXCLUIR E DETALHAR(GERAR PDF)
